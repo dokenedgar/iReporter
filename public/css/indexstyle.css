@@ -105,6 +105,8 @@ footer {
     padding: 1rem;
 }
 
+
+
 @media (max-width: 700px){
     .showcase {
         min-height: 300px;
