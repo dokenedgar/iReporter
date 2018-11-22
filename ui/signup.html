@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/css/signupstyle.css">
+    <title>Sign-Up | iReporter </title>
+</head>
+
+
+<body>
+    <div class="navlinks">
+            <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="redflags.html">Red-Flags</a></li>
+                    <li><a href="interventions.html">Interventions</a></li>
+                  </ul>
+    </div>
+	<div class="container">
+            <div id="signup">
+                <h1>Sign Up To iReporter Here</h1>
+                <label>First Name:</label>
+                <input type="text" id="txtFname">
+                <label>Surname:</label>
+                <input type="text" id="txtSname">
+                <label>Phone:</label>
+                <input type="number" id="txtPhoneNum">
+                <label>Email:</label>
+                <input type="text" id="txtEmail">
+                <label>Username:</label>
+                <input type="text" id="txtUsername" >
+                <label>Password:</label>
+                <input type="password" id="txtPassword" required><br>
+                <button onclick="signUp()" id="buttonSignup">Submit</button>
+                <p><a href="signin.html">Already have an account? Sign in here.</a></p>
+            </div>
+            <p id="errors"></p>
+        </div>
+    <!--Footer-->
+    <footer><div class="footer_signup">
+            <p>iReporter &copy; 2018</p>
+        </div>
+        </footer>
+        
+    <!-- Wrapper Ends-->
+</body>
+</html>
