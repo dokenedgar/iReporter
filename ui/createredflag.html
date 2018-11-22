@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/css/createredflag.css">
+    <title>Create Red-Flag | iReporter </title>
+</head>
+
+
+<body>
+    <div class="navlinks">
+            <ul>
+                    <li><a href="index.html">Profile</a></li>
+                    <li><a href="redflags.html">My Red-Flags</a></li>
+                    <li><a href="interventions.html">My Interventions</a></li>
+                  </ul>
+    </div>
+    <div class="container">
+            <div id="signup">
+                <h1>Create A Red Flag Here:</h1>
+                <label>An incident linked to corruption</label><br>
+                
+                <div class="flex-container">
+                    <label>Title:</label>
+                    <input type="text" id="txtusername">
+                </div>
+                <div class="flex-container">
+                <label>Location:</label>
+                <!--<input type="text" id="txtlocation" onfocus="getLocation()">-->
+                <select id="location"></select>
+                </div>
+                <div class="flex-container">
+                        <!--<label>Latitude:</label>-->
+                        <input type="text" id="txtlatitude" readonly>
+                </div>
+                <div class="flex-container">
+                       <!-- <label>Longitude:</label> -->
+                        <input type="text" id="txtlongitude" readonly>
+                </div>
+                <div class="flex-container">
+                        <label></label>
+                        <span>
+                        <div id="mapHolder"></div>
+                    </span>
+                </div>
+                
+                <div class="flex-container">
+                <label>Description:</label>
+                <textarea id="desc"></textarea>
+                </div>
+                <div class="flex-container">
+                <label>Images (Optional)</label>
+                <input id="browse" type="file" onchange="previewFiles()" multiple><br>
+                
+            </div>
+            <div class="flex-container">
+                    <label></label>
+                    <div id="preview"></div>
+                    </div>
+            <div class="flex-container">
+                <label></label>
+                <button onclick="signIn()" id="buttonSignin">Submit</button>
+            </div>
+            </div>
+            <p id="errors"></p>
+        </div>
+
+        <script type="text/javascript" src="/public/js/uploadimages.js"></script>
+        <script type="text/javascript" src="/public/js/geolocation.js"></script>
+        <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuF95maYZ_HJh7cWkwaSimg7cPILT_pxs&callback=getLocation">
+    </script>
+    <!--Footer-->
+    <footer>
+            <p>iReporter &copy; 2018</p>
+        </footer>
+    <!-- Wrapper Ends-->
+</body>
+</html>
