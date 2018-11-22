@@ -185,6 +185,12 @@ footer {
   text-overflow: ellipsis;
   -webkit-appearance: none;
 }
+.imgPreview{
+    flex: 2;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 #preview{
     display: block;
     flex: 2;
