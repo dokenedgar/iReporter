@@ -236,6 +236,13 @@ footer {
 .box span {
     font-weight: bold;
 }
+.btn_link {
+    background: var(--dark);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;
+    text-decoration: none;
+    border: 0;
+}
 /*
   input {
     font-size: 20px;
