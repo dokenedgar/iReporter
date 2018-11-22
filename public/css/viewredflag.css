@@ -224,10 +224,15 @@ footer {
 
 .box {
     background: var(--primary);
-    text-align: center;
     font-size: 1.3rem;
     padding: 1.5rem 2rem;
     box-shadow: var(--shadow);
+}
+.box h3 {
+    text-align: center;
+}
+.status {
+    text-align: center;
 }
 .box:hover {
     background: rgb(4, 31, 4);
