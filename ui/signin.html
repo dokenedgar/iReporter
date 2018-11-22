@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/css/indexstyle.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Sign-In | iReporter </title>
+</head>
+
+
+<body>
+    <div class="navlinks">
+            <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="redflags.html">Red-Flags</a></li>
+                    <li><a href="interventions.html">Interventions</a></li>
+                  </ul>
+    </div>
+    <div class="container">
+            <div id="signup">
+                <h1>Log in To Your iReporter Account</h1>
+                <label>Sign in and let your voice be heard...</label><br>
+                <label>Enter Username:</label>
+                <input type="text" id="txtusername">
+                <label>Enter Password:</label>
+                <input type="password" id="txtpassword"><br>
+                <button onclick="signIn()" id="buttonSignin">Sign In</button>
+                <p><a href="signup.html">Don't have an account? Sign up here.</a></p>
+            </div>
+            <p id="errors"></p>
+        </div>
+    <!--Footer-->
+    <footer>
+            <p>iReporter &copy; 2018</p>
+        </footer>
+    <!-- Wrapper Ends-->
+</body>
+</html>
