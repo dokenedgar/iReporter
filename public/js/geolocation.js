@@ -108,3 +108,11 @@ function showError(error) {
 }
 
 //https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=14&size=400x400&key=YOUR_API_KEY
+
+let createRedFlag = () =>{
+    window.location.href = 'profile.html'  
+  }
+
+  let createIntervention = () =>{
+    window.location.href = 'profile.html'  
+  }
