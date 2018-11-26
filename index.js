@@ -1,9 +1,17 @@
-let express = require('express');
-let app = express();
-//{}
-app.get('/', function(req, res){
-    //res.status(200).send('OK');
-    res.send('Hello Worldy..');
-});
+import express from 'express';
+import path from 'path';
+import User from './src/controllers/userController';
 
-app.listen(3030, () => console.log('Listening on Port 3030...'));
+const app = express();
+app.use(express.json());
+
+app.set('port', 3030);
+
+// []
+// sign-up API
+app.post('/api/v1/auth/signup', User.create);
+
+
+//app.listen(3030, () => console.log('Listening on Port 3030...'));
+app.listen(app.get('port'));
+export default app;
