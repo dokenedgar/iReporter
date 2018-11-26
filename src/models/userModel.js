@@ -29,33 +29,24 @@ class UserClass {
       password: data.password,
       registered: new Date().toDateString(),
       isAdmin: 'false'
-      // userid
     }
 
     users.push(newUser);
-    console.log(users);
-/*
-     db.query('INSERT INTO users (firstname, surname, phone, username, password, userid) values($1, $2, $3, $4, $5, $6)',
-    [data.firstname, data.surname, data.phone, data.username, data.password, userid], (err)=>{
-      if (err) {
-        console.log(err);
-      }
-    });
-    */
+    // console.log(users);
     return newUser;
   }
-/*
-  findUser(username, password, callback) {
-    db.query('SELECT userid FROM users where username=($1) AND password=($2)',
-    [username, password], (err, res)=>{
-      if (err) {
-        console.log(err);
+
+  findUser(username, password) {
+    let userFound = false;
+    users.forEach((element) =>{
+      if((element.username === username) && (element.password === password)){
+        userFound = element;
+        return userFound;
       }
-      callback(err, res)
-    
     });
+    return userFound;
   }
-  */
+  
 }
 
 export const newUserObject = new UserClass();

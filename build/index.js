@@ -27,6 +27,9 @@ app.set('port', 3030);
 // sign-up API
 app.post('/api/v1/auth/signup', _userController2.default.create);
 
+//Sign-In
+app.post('/api/v1/auth/login', _userController2.default.getUser);
+
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));
 exports.default = app;
