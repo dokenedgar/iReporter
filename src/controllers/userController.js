@@ -24,7 +24,7 @@ const User = {
     return res.status(201).send(response);
   },
   // other methods here
-  /*
+  
   getUser(req, res) {
     if (!req.body.username || !req.body.password) {
       return res.status(400).send({ message: 'All fields required' });
@@ -36,22 +36,17 @@ const User = {
       return res.status(400).send({ message: 'Error processing request. Please enter password of atleast 5 characters' });
     }
 
-    newUserObject.findUser(req.body.username, req.body.password, (err, result)=>{
-       if (result===undefined) {
-        return res.status(400).send({ message: 'Error processing request. Incorrect / invalid id' });
-      }   
-    if (result.rowCount === 0) {
-      return res.status(400).send({ message: 'user not found' });
+    const result = newUserObject.findUser(req.body.username, req.body.password);
+    if(result === false ){
+      const response = { status: 400, error: 'Invalid login credentials' };
+      return res.status(400).send(response);
     }
-    console.log(result.rows);
-    jwt.sign({ userid: result.rows}, '7r3-l4l4', { expiresIn:'24h' }, (err, token) => {
-        return res.status(200).send({ message: 'user found', token });
-      });
-    
-    
-    });
+    else {
+      const response = { status: 200, data: [result] };
+      return res.status(200).send(response);
+    }
 
   },
-*/
+
 }
 export default User;
