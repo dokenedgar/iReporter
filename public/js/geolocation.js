@@ -38,6 +38,17 @@ function showPosition(position) {
     placeMarkerAndPanTo(e.latLng, map);
     //console.log(e.latLng.lat());
     //console.log(e.latLng.lng());
+    //console.log();
+    //someNumber = e.latLng.lat();
+    //someNumber = Math.round( someNumber * 1e16 ) / 1e16;
+    //console.log(someNumber);
+    // End of test
+    //console.log('REgEx');
+    //let reg = /-?[0-9]{1,3}.[0-9]*/;
+    //let reg = /[a-zA-Z]/;
+    //console.log(reg.test("4.434534653473453453234234230d94"));
+    //console.log(typeof "4.434534653473453453234234230d94");
+
     latitude.value = e.latLng.lat();
     longitude.value = e.latLng.lng();
   }); 

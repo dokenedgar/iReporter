@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import User from './src/controllers/userController';
+import RedFlag from './src/controllers/redflagController';
 
 const app = express();
 app.use(express.json());
@@ -13,6 +14,9 @@ app.post('/api/v1/auth/signup', User.create);
 
 //Sign-In
 app.post('/api/v1/auth/login', User.getUser);
+
+//create red-flag record/incident
+app.post('/api/v1/red-flags', RedFlag.create);
 
 
 //app.listen(3030, () => console.log('Listening on Port 3030...'));

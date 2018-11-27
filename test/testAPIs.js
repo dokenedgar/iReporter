@@ -51,4 +51,21 @@ describe('Users test with chai-http', () => {
             expect(res.body).to.be.an('object');
         });
     });
+
+    it('create a red-flag record', () => {
+        return chai.request(app)
+        .post('/api/v1/red-flags')
+        .send({
+            "userid": 64892106,
+            "type": "red-flag",
+            "latitude": -40.434534653473453453234234234,
+            "longitude": -179.12345678765432190876,
+            "comment": "Some stories...Some stories...Some stories...Some stories...Some stories..."
+        })
+        .then((res) => {
+            expect(res).to.have.status(201);
+            expect(res.body).to.be.an('object');
+            expect(res.body.data).to.be.an('array');
+        });
+    });
 });
