@@ -21,7 +21,7 @@ class RedFlagClass {
       createdOn: new Date().toDateString(),
       createdBy: data.userid,
       type: data.type,
-      location: `${data.latitude},${data.longitude}`,
+      location: `${data.latitude}, ${data.longitude}`,
       status: 'Draft',
       Images: 'Images here..', //Videos
       comment: data.comment
@@ -52,6 +52,24 @@ class RedFlagClass {
  getAllRedFlagsRecord() {
      return redFlags;
  }
+
+ editRedFlagLocation(id, latitude, longitude){
+    let recordFound = false;
+    redFlags.forEach((element) =>{
+      if((element.id === id)){
+        element.location =  `${latitude}, ${longitude}`;
+        recordFound = {
+            id,
+            message: "Updated red-flag record’s location"
+        };
+        return recordFound;
+      }
+    });
+    return recordFound;
+
+ }
+
+
 }
 
 export const newRedFlagObject = new RedFlagClass();

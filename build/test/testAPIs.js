@@ -81,4 +81,14 @@ describe('Users test with chai-http', function () {
             (0, _chai.expect)(res.body).to.be.an('object');
         });
     });
+
+    it('Edit A Red-Flag location', function () {
+        return _chai2.default.request(_index2.default).patch('/api/v1/red-flags/12345678/location').send({
+            "latitude": 23.434534653473453453234234234,
+            "longitude": 80.12345678765432190876
+        }).then(function (res) {
+            (0, _chai.expect)(res).to.have.status(400);
+            (0, _chai.expect)(res.body).to.be.an('object');
+        });
+    });
 });

@@ -85,4 +85,18 @@ describe('Users test with chai-http', () => {
             expect(res.body).to.be.an('object');
         });
     });
+
+    it('Edit A Red-Flag location', () => {
+        return chai.request(app)
+        .patch('/api/v1/red-flags/12345678/location')
+        .send({
+            "latitude": 23.434534653473453453234234234,
+            "longitude": 80.12345678765432190876
+        })
+        .then((res) => {
+            expect(res).to.have.status(400);
+            expect(res.body).to.be.an('object');
+        });
+    });
+
 });
