@@ -68,4 +68,12 @@ describe('Users test with chai-http', () => {
             expect(res.body.data).to.be.an('array');
         });
     });
+
+    it('Get All Red-Flags', () => {
+        return chai.request(app)
+        .get('/api/v1/red-flags')
+        .then((res) => {
+            expect(res).to.have.status(200);
+        });
+    });
 });

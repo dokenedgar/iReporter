@@ -53,6 +53,11 @@ var RedFlag = {
       var _response = { status: 200, data: [result] };
       return res.status(200).send(_response);
     }
+  },
+  getAllRedFlags: function getAllRedFlags(req, res) {
+    var redFlags = _redflagModel.newRedFlagObject.getAllRedFlagsRecord();
+    var response = { status: 200, data: redFlags };
+    return res.status(200).send(response);
   }
 };
 exports.default = RedFlag;

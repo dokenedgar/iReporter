@@ -49,6 +49,9 @@ class RedFlagClass {
     return userFound;
   }
   */
+ getAllRedFlagsRecord() {
+     return redFlags;
+ }
 }
 
 export const newRedFlagObject = new RedFlagClass();

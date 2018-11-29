@@ -18,6 +18,8 @@ app.post('/api/v1/auth/login', User.getUser);
 //create red-flag record/incident
 app.post('/api/v1/red-flags', RedFlag.create);
 
+//Get All Red-Flags
+app.get('/api/v1/red-flags', RedFlag.getAllRedFlags);
 
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));
