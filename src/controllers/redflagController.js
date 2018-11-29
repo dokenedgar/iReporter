@@ -25,19 +25,19 @@ const RedFlag = {
     return res.status(201).send(response);
   },
   // other methods here
+
+  getAllRedFlags(req, res){
+    const redFlags = newRedFlagObject.getAllRedFlagsRecord();
+    const response = { status: 200, data: redFlags };
+    return res.status(200).send(response);
+},
   
-  getUser(req, res) {
-    if (!req.body.username || !req.body.password) {
-      return res.status(400).send({ message: 'All fields required' });
-    }
-    if (!req.body.username || (req.body.username.length < 5 ) || (req.body.username.length > 20 ) || (/\s/.test(req.body.username)) ) {
+  fetchSpecificRedFlag(req, res) {
+    if (!req.params.id || (req.params.id.length < 5 ) || (req.params.id.length > 20 ) || (/\s/.test(req.params.id)) ) {
       return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
     }
-    if (!req.body.password || (req.body.password.length < 5 ) || (req.body.password.length > 20 ) || (/\s/.test(req.body.password)) ) {
-      return res.status(400).send({ message: 'Error processing request. Please enter password of atleast 5 characters' });
-    }
 
-    const result = newUserObject.findUser(req.body.username, req.body.password);
+    const result = newRedFlagObject.getSpecificRedFlag(req.params.id);
     if(result === false ){
       const response = { status: 400, error: 'Invalid login credentials' };
       return res.status(400).send(response);
@@ -49,11 +49,6 @@ const RedFlag = {
 
   },
 
-  getAllRedFlags(req, res){
-      const redFlags = newRedFlagObject.getAllRedFlagsRecord();
-      const response = { status: 200, data: redFlags };
-      return res.status(200).send(response);
-  },
 
 }
 export default RedFlag;
