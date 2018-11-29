@@ -37,18 +37,18 @@ class RedFlagClass {
     //return newRedFlag;
     return response;
   }
-/*
-  findUser(username, password) {
+
+  getSpecificRedFlag(id) {
     let userFound = false;
-    users.forEach((element) =>{
-      if((element.username === username) && (element.password === password)){
+    redFlags.forEach((element) =>{
+      if((element.id === id)){
         userFound = element;
         return userFound;
       }
     });
     return userFound;
   }
-  */
+  
  getAllRedFlagsRecord() {
      return redFlags;
  }

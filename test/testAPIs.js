@@ -76,4 +76,13 @@ describe('Users test with chai-http', () => {
             expect(res).to.have.status(200);
         });
     });
+
+    it('Get A Specific Red-Flag', () => {
+        return chai.request(app)
+        .get('/api/v1/red-flags/12345678')
+        .then((res) => {
+            expect(res).to.have.status(400);
+            expect(res.body).to.be.an('object');
+        });
+    });
 });

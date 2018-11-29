@@ -55,19 +55,18 @@ var RedFlagClass = function () {
       //return newRedFlag;
       return response;
     }
-    /*
-      findUser(username, password) {
-        let userFound = false;
-        users.forEach((element) =>{
-          if((element.username === username) && (element.password === password)){
-            userFound = element;
-            return userFound;
-          }
-        });
-        return userFound;
-      }
-      */
-
+  }, {
+    key: 'getSpecificRedFlag',
+    value: function getSpecificRedFlag(id) {
+      var userFound = false;
+      redFlags.forEach(function (element) {
+        if (element.id === id) {
+          userFound = element;
+          return userFound;
+        }
+      });
+      return userFound;
+    }
   }, {
     key: 'getAllRedFlagsRecord',
     value: function getAllRedFlagsRecord() {
