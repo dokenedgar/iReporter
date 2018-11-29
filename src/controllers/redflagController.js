@@ -49,5 +49,11 @@ const RedFlag = {
 
   },
 
+  getAllRedFlags(req, res){
+      const redFlags = newRedFlagObject.getAllRedFlagsRecord();
+      const response = { status: 200, data: redFlags };
+      return res.status(200).send(response);
+  },
+
 }
 export default RedFlag;

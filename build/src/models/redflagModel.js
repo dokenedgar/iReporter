@@ -68,6 +68,11 @@ var RedFlagClass = function () {
       }
       */
 
+  }, {
+    key: 'getAllRedFlagsRecord',
+    value: function getAllRedFlagsRecord() {
+      return redFlags;
+    }
   }]);
 
   return RedFlagClass;
