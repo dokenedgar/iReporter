@@ -38,7 +38,7 @@ var RedFlagClass = function () {
         createdOn: new Date().toDateString(),
         createdBy: data.userid,
         type: data.type,
-        location: data.latitude + ',' + data.longitude,
+        location: data.latitude + ', ' + data.longitude,
         status: 'Draft',
         Images: 'Images here..', //Videos
         comment: data.comment
@@ -71,6 +71,22 @@ var RedFlagClass = function () {
     key: 'getAllRedFlagsRecord',
     value: function getAllRedFlagsRecord() {
       return redFlags;
+    }
+  }, {
+    key: 'editRedFlagLocation',
+    value: function editRedFlagLocation(id, latitude, longitude) {
+      var recordFound = false;
+      redFlags.forEach(function (element) {
+        if (element.id === id) {
+          element.location = latitude + ', ' + longitude;
+          recordFound = {
+            id: id,
+            message: "Updated red-flag record’s location"
+          };
+          return recordFound;
+        }
+      });
+      return recordFound;
     }
   }]);
 

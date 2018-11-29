@@ -43,6 +43,10 @@ app.get('/api/v1/red-flags', _redflagController2.default.getAllRedFlags);
 //Get A Specific Red-Flag Record
 app.get('/api/v1/red-flags/:id', _redflagController2.default.fetchSpecificRedFlag);
 
+//Edit Red-Flag Location
+//PATCH /red-flags/<red-flag-id>/location
+app.patch('/api/v1/red-flags/:id/location', _redflagController2.default.editLocationRedFlag);
+
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));
 exports.default = app;
