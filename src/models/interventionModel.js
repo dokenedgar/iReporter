@@ -32,8 +32,8 @@ class InterventionClass {
     //return newRedFlag;
     return response;
   }
-/*
-  getSpecificRedFlag(id) {
+
+  getSpecificIntervention(id) {
     let userFound = false;
     interventions.forEach((element) =>{
       if((element.id === id)){
@@ -43,7 +43,7 @@ class InterventionClass {
     });
     return userFound;
   }
-*/
+
   
  getAllinterventionRecords() {
      return interventions;

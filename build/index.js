@@ -58,11 +58,9 @@ app.patch('/api/v1/red-flags/:id/comment', _redflagController2.default.editComme
 app.delete('/api/v1/red-flags/:id', _redflagController2.default.deleteRedFlag);
 
 // INTERVENTION ROUTES
-// create intervention record
 app.post('/api/v1/interventions', _interventionController2.default.create);
-
-// Get All Interventions
 app.get('/api/v1/interventions', _interventionController2.default.getAllInterventions);
+app.get('/api/v1/interventions/:id', _interventionController2.default.fetchSpecificIntervention);
 
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));

@@ -151,6 +151,15 @@ describe('iReporter Test Suites', () => {
                 expect(res).to.have.status(200);
             });
         });
+
+        it('Get A Specific Intervention Record', () => {
+            return chai.request(app)
+            .get('/api/v1/interventions/12345678')
+            .then((res) => {
+                expect(res).to.have.status(400);
+                expect(res.body).to.be.an('object');
+            });
+        });
     });
 
 });
