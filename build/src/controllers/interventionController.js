@@ -38,6 +38,19 @@ var Intervention = {
     var intervention = _interventionModel.newInterventionObject.getAllinterventionRecords();
     var response = { status: 200, data: intervention };
     return res.status(200).send(response);
+  },
+  fetchSpecificIntervention: function fetchSpecificIntervention(req, res) {
+    if (!req.params.id || req.params.id.length < 5 || req.params.id.length > 20 || /\s/.test(req.params.id)) {
+      return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
+    }
+    var result = _interventionModel.newInterventionObject.getSpecificIntervention(req.params.id);
+    if (result === false) {
+      var response = { status: 400, error: 'Invalid login credentials' };
+      return res.status(400).send(response);
+    } else {
+      var _response = { status: 200, data: [result] };
+      return res.status(200).send(_response);
+    }
   }
 };
 exports.default = Intervention;

@@ -49,19 +49,18 @@ var InterventionClass = function () {
       //return newRedFlag;
       return response;
     }
-    /*
-      getSpecificRedFlag(id) {
-        let userFound = false;
-        interventions.forEach((element) =>{
-          if((element.id === id)){
-            userFound = element;
-            return userFound;
-          }
-        });
-        return userFound;
-      }
-    */
-
+  }, {
+    key: 'getSpecificIntervention',
+    value: function getSpecificIntervention(id) {
+      var userFound = false;
+      interventions.forEach(function (element) {
+        if (element.id === id) {
+          userFound = element;
+          return userFound;
+        }
+      });
+      return userFound;
+    }
   }, {
     key: 'getAllinterventionRecords',
     value: function getAllinterventionRecords() {

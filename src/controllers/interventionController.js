@@ -31,12 +31,12 @@ const Intervention = {
     const response = { status: 200, data: intervention };
     return res.status(200).send(response);
 },
-/*  
-  fetchSpecificRedFlag(req, res) {
+
+  fetchSpecificIntervention(req, res) {
     if (!req.params.id || (req.params.id.length < 5 ) || (req.params.id.length > 20 ) || (/\s/.test(req.params.id)) ) {
       return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
     }
-    const result = newRedFlagObject.getSpecificRedFlag(req.params.id);
+    const result = newInterventionObject.getSpecificIntervention(req.params.id);
     if(result === false ){
       const response = { status: 400, error: 'Invalid login credentials' };
       return res.status(400).send(response);
@@ -47,7 +47,7 @@ const Intervention = {
     }
 
   },
-
+/*  
   editLocationRedFlag(req, res) {
     if (!req.params.id || (req.params.id.length < 5 ) || (req.params.id.length > 20 ) || (/\s/.test(req.params.id)) ) {
       return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
