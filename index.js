@@ -7,7 +7,8 @@ import Intervention from './src/controllers/interventionController';
 const app = express();
 app.use(express.json());
 
-app.set('port', 3030);
+//app.set('port', 3030);
+app.set('port', process.env.PORT || 3030);
 
 // []
 // sign-up API
