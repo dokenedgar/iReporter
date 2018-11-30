@@ -99,4 +99,16 @@ describe('Users test with chai-http', () => {
         });
     });
 
+    it('Edit A Red-Flag Comment', () => {
+        return chai.request(app)
+        .patch('/api/v1/red-flags/12345678/comment')
+        .send({
+            "comment": "Something new.."
+        })
+        .then((res) => {
+            expect(res).to.have.status(400);
+            expect(res.body).to.be.an('object');
+        });
+    });
+
 });

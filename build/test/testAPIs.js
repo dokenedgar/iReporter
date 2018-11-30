@@ -91,4 +91,13 @@ describe('Users test with chai-http', function () {
             (0, _chai.expect)(res.body).to.be.an('object');
         });
     });
+
+    it('Edit A Red-Flag Comment', function () {
+        return _chai2.default.request(_index2.default).patch('/api/v1/red-flags/12345678/comment').send({
+            "comment": "Something new.."
+        }).then(function (res) {
+            (0, _chai.expect)(res).to.have.status(400);
+            (0, _chai.expect)(res.body).to.be.an('object');
+        });
+    });
 });

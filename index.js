@@ -25,8 +25,10 @@ app.get('/api/v1/red-flags', RedFlag.getAllRedFlags);
 app.get('/api/v1/red-flags/:id', RedFlag.fetchSpecificRedFlag);
 
 //Edit Red-Flag Location
-//PATCH /red-flags/<red-flag-id>/location
 app.patch('/api/v1/red-flags/:id/location', RedFlag.editLocationRedFlag);
+
+//Edit Red-Flag Comment
+app.patch('/api/v1/red-flags/:id/comment', RedFlag.editCommentRedFlag);
 
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));

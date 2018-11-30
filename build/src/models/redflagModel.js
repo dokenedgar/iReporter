@@ -88,6 +88,22 @@ var RedFlagClass = function () {
       });
       return recordFound;
     }
+  }, {
+    key: 'editRedFlagComment',
+    value: function editRedFlagComment(id, comment) {
+      var recordFound = false;
+      redFlags.forEach(function (element) {
+        if (element.id === id) {
+          element.comment = comment;
+          recordFound = {
+            id: id,
+            message: "Updated red-flag record’s comment"
+          };
+          return recordFound;
+        }
+      });
+      return recordFound;
+    }
   }]);
 
   return RedFlagClass;
