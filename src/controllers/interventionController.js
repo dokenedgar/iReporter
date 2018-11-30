@@ -73,8 +73,8 @@ const Intervention = {
     }
 
   },
-/* 
-  editCommentRedFlag(req, res) {
+
+  editCommentIntervention(req, res) {
     if (!req.params.id || (req.params.id.length < 5 ) || (req.params.id.length > 20 ) || (/\s/.test(req.params.id)) ) {
       return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
     }
@@ -83,7 +83,7 @@ const Intervention = {
           return res.status(400).send({ message: 'LONGITUDE. Phone number should have length of 11, containing only digits' });
         }
   
-    const result = newRedFlagObject.editRedFlagComment(req.params.id, req.body.comment);
+    const result = newInterventionObject.editInterventionComment(req.params.id, req.body.comment);
 
     if(result === false ){
       const response = { status: 400, error: 'Invalid login credentials' };
@@ -95,7 +95,7 @@ const Intervention = {
     }
 
   },
-
+/* 
   deleteRedFlag(req, res) {
     if (!req.params.id || (req.params.id.length < 5 ) || (req.params.id.length > 20 ) || (/\s/.test(req.params.id)) ) {
       return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
