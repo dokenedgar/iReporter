@@ -57,31 +57,29 @@ class InterventionClass {
         element.location =  `${latitude}, ${longitude}`;
         recordFound = {
             id,
-            message: "Updated red-flag record’s location"
+            message: "Updated Intervention record’s location"
         };
         return recordFound;
       }
     });
     return recordFound;
-
  }
 
-/*
-editRedFlagComment(id, comment){
+editInterventionComment(id, comment){
     let recordFound = false;
     interventions.forEach((element) =>{
       if((element.id === id)){
         element.comment =  comment;
         recordFound = {
             id,
-            message: "Updated red-flag record’s comment"
+            message: "Updated intervention record’s comment"
         };
         return recordFound;
       }
     });
     return recordFound;
  }
-*/
+
 /*
  deleteRedFlag(id){
     let recordFound = false;

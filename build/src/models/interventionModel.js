@@ -75,7 +75,23 @@ var InterventionClass = function () {
           element.location = latitude + ', ' + longitude;
           recordFound = {
             id: id,
-            message: "Updated red-flag record’s location"
+            message: "Updated Intervention record’s location"
+          };
+          return recordFound;
+        }
+      });
+      return recordFound;
+    }
+  }, {
+    key: 'editInterventionComment',
+    value: function editInterventionComment(id, comment) {
+      var recordFound = false;
+      interventions.forEach(function (element) {
+        if (element.id === id) {
+          element.comment = comment;
+          recordFound = {
+            id: id,
+            message: "Updated intervention record’s comment"
           };
           return recordFound;
         }
@@ -83,22 +99,6 @@ var InterventionClass = function () {
       return recordFound;
     }
 
-    /*
-    editRedFlagComment(id, comment){
-        let recordFound = false;
-        interventions.forEach((element) =>{
-          if((element.id === id)){
-            element.comment =  comment;
-            recordFound = {
-                id,
-                message: "Updated red-flag record’s comment"
-            };
-            return recordFound;
-          }
-        });
-        return recordFound;
-     }
-    */
     /*
      deleteRedFlag(id){
         let recordFound = false;

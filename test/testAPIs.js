@@ -173,6 +173,18 @@ describe('iReporter Test Suites', () => {
                 expect(res.body).to.be.an('object');
             });
         });
+
+        it('Edit An Intervention Comment', () => {
+            return chai.request(app)
+            .patch('/api/v1/interventions/12345678/comment')
+            .send({
+                "comment": "Wetin we gain"
+            })
+            .then((res) => {
+                expect(res).to.have.status(400);
+                expect(res.body).to.be.an('object');
+            });
+        });
     });
 
 });

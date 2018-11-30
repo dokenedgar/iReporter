@@ -149,5 +149,14 @@ describe('iReporter Test Suites', function () {
                 (0, _chai.expect)(res.body).to.be.an('object');
             });
         });
+
+        it('Edit An Intervention Comment', function () {
+            return _chai2.default.request(_index2.default).patch('/api/v1/interventions/12345678/comment').send({
+                "comment": "Wetin we gain"
+            }).then(function (res) {
+                (0, _chai.expect)(res).to.have.status(400);
+                (0, _chai.expect)(res.body).to.be.an('object');
+            });
+        });
     });
 });
