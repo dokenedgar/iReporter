@@ -69,6 +69,21 @@ class RedFlagClass {
 
  }
 
+editRedFlagComment(id, comment){
+    let recordFound = false;
+    redFlags.forEach((element) =>{
+      if((element.id === id)){
+        element.comment =  comment;
+        recordFound = {
+            id,
+            message: "Updated red-flag record’s comment"
+        };
+        return recordFound;
+      }
+    });
+    return recordFound;
+
+ }
 
 }
 
