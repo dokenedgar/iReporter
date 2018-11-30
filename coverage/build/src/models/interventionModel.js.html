@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.13% </span>
+        <span class="strong">78.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>43/53</span>
+        <span class='fraction'>47/60</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">56.25% </span>
+        <span class="strong">55.56% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>9/16</span>
+        <span class='fraction'>10/18</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>16/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">79.49% </span>
+        <span class="strong">76.09% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>31/39</span>
+        <span class='fraction'>35/46</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -167,15 +167,13 @@
 <a name='L119'></a><a href='#L119'>119</a>
 <a name='L120'></a><a href='#L120'>120</a>
 <a name='L121'></a><a href='#L121'>121</a>
-<a name='L122'></a><a href='#L122'>122</a>
-<a name='L123'></a><a href='#L123'>123</a>
-<a name='L124'></a><a href='#L124'>124</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L122'></a><a href='#L122'>122</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -272,20 +270,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -392,24 +388,22 @@ var InterventionClass = function () {
       });
       return recordFound;
     }
-&nbsp;
-    /*
-     deleteRedFlag(id){
-        let recordFound = false;
-        interventions.forEach((element, index) =&gt;{
-          if((element.id === id)){
-            interventions.splice(index, 1);
-            recordFound = {
-                id,
-                message: "red-flag record has been deleted"
-            };
-            return recordFound;
-          }
-        });
-        return recordFound;
-     }
-     */
-&nbsp;
+  }, {
+    key: 'deleteIntervention',
+    value: function deleteIntervention(id) {
+      var recordFound = false;
+      interventions.forEach(function (element, index) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (element.id === id) {
+<span class="cstat-no" title="statement not covered" >          interventions.splice(index, 1);</span>
+<span class="cstat-no" title="statement not covered" >          recordFound = {</span>
+            id: id,
+            message: "Intervention record has been deleted"
+          };
+<span class="cstat-no" title="statement not covered" >          return recordFound;</span>
+        }
+      });
+      return recordFound;
+    }
   }]);
 &nbsp;
   return InterventionClass;
@@ -421,7 +415,7 @@ var newInterventionObject = exports.newInterventionObject = new InterventionClas
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Nov 30 2018 13:17:41 GMT+0100 (W. Central Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Nov 30 2018 13:36:43 GMT+0100 (W. Central Africa Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

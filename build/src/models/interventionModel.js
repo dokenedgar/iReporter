@@ -98,24 +98,22 @@ var InterventionClass = function () {
       });
       return recordFound;
     }
-
-    /*
-     deleteRedFlag(id){
-        let recordFound = false;
-        interventions.forEach((element, index) =>{
-          if((element.id === id)){
-            interventions.splice(index, 1);
-            recordFound = {
-                id,
-                message: "red-flag record has been deleted"
-            };
-            return recordFound;
-          }
-        });
-        return recordFound;
-     }
-     */
-
+  }, {
+    key: 'deleteIntervention',
+    value: function deleteIntervention(id) {
+      var recordFound = false;
+      interventions.forEach(function (element, index) {
+        if (element.id === id) {
+          interventions.splice(index, 1);
+          recordFound = {
+            id: id,
+            message: "Intervention record has been deleted"
+          };
+          return recordFound;
+        }
+      });
+      return recordFound;
+    }
   }]);
 
   return InterventionClass;

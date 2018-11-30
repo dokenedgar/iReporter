@@ -158,5 +158,12 @@ describe('iReporter Test Suites', function () {
                 (0, _chai.expect)(res.body).to.be.an('object');
             });
         });
+
+        it('Delete An Intervention', function () {
+            return _chai2.default.request(_index2.default).del('/api/v1/interventions/12345678').then(function (res) {
+                (0, _chai.expect)(res).to.have.status(400);
+                (0, _chai.expect)(res.body).to.be.an('object');
+            });
+        });
     });
 });

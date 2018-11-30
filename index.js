@@ -41,6 +41,7 @@ app.get('/api/v1/interventions', Intervention.getAllInterventions);
 app.get('/api/v1/interventions/:id', Intervention.fetchSpecificIntervention);
 app.patch('/api/v1/interventions/:id/location', Intervention.editLocationIntervention);
 app.patch('/api/v1/interventions/:id/comment', Intervention.editCommentIntervention);
+app.delete('/api/v1/interventions/:id', Intervention.deleteIntervention);
 
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));
