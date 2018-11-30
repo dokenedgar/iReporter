@@ -113,7 +113,7 @@ describe('iReporter Test Suites', function () {
 
     describe('Intervention Tests', function () {
 
-        it('create an intervention record', function () {
+        it('create An intervention record', function () {
             return _chai2.default.request(_index2.default).post('/api/v1/interventions').send({
                 "userid": 64892106,
                 "type": "intervention",
@@ -135,6 +135,16 @@ describe('iReporter Test Suites', function () {
 
         it('Get A Specific Intervention Record', function () {
             return _chai2.default.request(_index2.default).get('/api/v1/interventions/12345678').then(function (res) {
+                (0, _chai.expect)(res).to.have.status(400);
+                (0, _chai.expect)(res.body).to.be.an('object');
+            });
+        });
+
+        it('Edit An Intervention location', function () {
+            return _chai2.default.request(_index2.default).patch('/api/v1/interventions/12345678/location').send({
+                "latitude": 23.73453453234234234,
+                "longitude": 80.678765432190876
+            }).then(function (res) {
                 (0, _chai.expect)(res).to.have.status(400);
                 (0, _chai.expect)(res.body).to.be.an('object');
             });

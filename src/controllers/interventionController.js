@@ -47,8 +47,8 @@ const Intervention = {
     }
 
   },
-/*  
-  editLocationRedFlag(req, res) {
+ 
+  editLocationIntervention(req, res) {
     if (!req.params.id || (req.params.id.length < 5 ) || (req.params.id.length > 20 ) || (/\s/.test(req.params.id)) ) {
       return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
     }
@@ -61,7 +61,7 @@ const Intervention = {
       req.body.latitude = Math.round( req.body.latitude * 1e16 ) / 1e16;
       req.body.longitude = Math.round( req.body.longitude * 1e16 ) / 1e16;
   
-    const result = newRedFlagObject.editRedFlagLocation(req.params.id, req.body.latitude, req.body.longitude);
+    const result = newInterventionObject.editInterventionLocation(req.params.id, req.body.latitude, req.body.longitude);
 
     if(result === false ){
       const response = { status: 400, error: 'Invalid login credentials' };
@@ -73,7 +73,7 @@ const Intervention = {
     }
 
   },
-
+/* 
   editCommentRedFlag(req, res) {
     if (!req.params.id || (req.params.id.length < 5 ) || (req.params.id.length > 20 ) || (/\s/.test(req.params.id)) ) {
       return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
