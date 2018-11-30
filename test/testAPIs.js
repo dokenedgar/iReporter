@@ -111,4 +111,14 @@ describe('Users test with chai-http', () => {
         });
     });
 
+    
+    it('Delete A Red-Flag', () => {
+        return chai.request(app)
+        .del('/api/v1/red-flags/12345678')
+        .then((res) => {
+            expect(res).to.have.status(400);
+            expect(res.body).to.be.an('object');
+        });
+    });
+
 });

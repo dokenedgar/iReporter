@@ -93,6 +93,21 @@ var RedFlag = {
       var _response3 = { status: 200, data: [result] };
       return res.status(200).send(_response3);
     }
+  },
+  deleteRedFlag: function deleteRedFlag(req, res) {
+    if (!req.params.id || req.params.id.length < 5 || req.params.id.length > 20 || /\s/.test(req.params.id)) {
+      return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
+    }
+
+    var result = _redflagModel.newRedFlagObject.deleteRedFlag(req.params.id);
+
+    if (result === false) {
+      var response = { status: 400, error: 'Invalid login credentials' };
+      return res.status(400).send(response);
+    } else {
+      var _response4 = { status: 200, data: [result] };
+      return res.status(200).send(_response4);
+    }
   }
 };
 exports.default = RedFlag;

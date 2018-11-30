@@ -49,6 +49,9 @@ app.patch('/api/v1/red-flags/:id/location', _redflagController2.default.editLoca
 //Edit Red-Flag Comment
 app.patch('/api/v1/red-flags/:id/comment', _redflagController2.default.editCommentRedFlag);
 
+//Delete A Red-Flag
+app.delete('/api/v1/red-flags/:id', _redflagController2.default.deleteRedFlag);
+
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));
 exports.default = app;

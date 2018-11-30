@@ -104,6 +104,22 @@ var RedFlagClass = function () {
       });
       return recordFound;
     }
+  }, {
+    key: 'deleteRedFlag',
+    value: function deleteRedFlag(id) {
+      var recordFound = false;
+      redFlags.forEach(function (element, index) {
+        if (element.id === id) {
+          redFlags.splice(index, 1);
+          recordFound = {
+            id: id,
+            message: "red-flag record has been deleted"
+          };
+          return recordFound;
+        }
+      });
+      return recordFound;
+    }
   }]);
 
   return RedFlagClass;
