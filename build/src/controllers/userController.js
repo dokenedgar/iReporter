@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _UserModel = require('../models/UserModel');
+var _userModel = require('../models/userModel');
 
 // import jwt from 'jsonwebtoken';
 
@@ -25,7 +25,7 @@ var User = {
     if (!req.body.password || req.body.password.length < 5 || req.body.password.length > 20 || /\s/.test(req.body.password)) {
       return res.status(400).send({ message: 'Error saving data. Please choose a strong password of atleast 5 characters' });
     }
-    var user = _UserModel.newUserObject.create(req.body);
+    var user = _userModel.newUserObject.create(req.body);
 
     var response = { status: 201, data: [user] };
     return res.status(201).send(response);
@@ -44,7 +44,7 @@ var User = {
       return res.status(400).send({ message: 'Error processing request. Please enter password of atleast 5 characters' });
     }
 
-    var result = _UserModel.newUserObject.findUser(req.body.username, req.body.password);
+    var result = _userModel.newUserObject.findUser(req.body.username, req.body.password);
     if (result === false) {
       var response = { status: 400, error: 'Invalid login credentials' };
       return res.status(400).send(response);
