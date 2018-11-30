@@ -143,6 +143,14 @@ describe('iReporter Test Suites', () => {
                 expect(res.body.data).to.be.an('array');
             });
         });
+
+        it('Get All Intervention Records', () => {
+            return chai.request(app)
+            .get('/api/v1/interventions')
+            .then((res) => {
+                expect(res).to.have.status(200);
+            });
+        });
     });
 
 });

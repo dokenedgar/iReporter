@@ -44,11 +44,11 @@ class InterventionClass {
     return userFound;
   }
 */
-/*  
- getAllinterventionsRecord() {
+  
+ getAllinterventionRecords() {
      return interventions;
  }
-*/
+
 /*
  editRedFlagLocation(id, latitude, longitude){
     let recordFound = false;

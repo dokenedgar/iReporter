@@ -25,13 +25,13 @@ const Intervention = {
     return res.status(201).send(response);
   },
   // other methods here
-/*
-  getAllRedFlags(req, res){
-    const redFlags = newRedFlagObject.getAllRedFlagsRecord();
-    const response = { status: 200, data: redFlags };
+
+  getAllInterventions(req, res){
+    const intervention = newInterventionObject.getAllinterventionRecords();
+    const response = { status: 200, data: intervention };
     return res.status(200).send(response);
 },
-  
+/*  
   fetchSpecificRedFlag(req, res) {
     if (!req.params.id || (req.params.id.length < 5 ) || (req.params.id.length > 20 ) || (/\s/.test(req.params.id)) ) {
       return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });

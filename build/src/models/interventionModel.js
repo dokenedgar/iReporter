@@ -61,11 +61,13 @@ var InterventionClass = function () {
         return userFound;
       }
     */
-    /*  
-     getAllinterventionsRecord() {
-         return interventions;
-     }
-    */
+
+  }, {
+    key: 'getAllinterventionRecords',
+    value: function getAllinterventionRecords() {
+      return interventions;
+    }
+
     /*
      editRedFlagLocation(id, latitude, longitude){
         let recordFound = false;
