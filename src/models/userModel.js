@@ -1,7 +1,7 @@
 // import db from '../../pgdb/dbconfig';
 // import uuidv4 from 'uuid/v4';
 
-export const users = [];
+const users = [];
 
 class UserClass {
   // constructor() {}

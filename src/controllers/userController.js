@@ -1,4 +1,4 @@
-import { users, newUserObject } from '../models/UserModel';
+import {  newUserObject } from '../models/UserModel';
 // import jwt from 'jsonwebtoken';
 
 const User = {
