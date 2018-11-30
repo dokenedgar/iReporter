@@ -30,6 +30,14 @@ var Intervention = {
 
     var response = { status: 201, data: [intervention] };
     return res.status(201).send(response);
+  },
+
+  // other methods here
+
+  getAllInterventions: function getAllInterventions(req, res) {
+    var intervention = _interventionModel.newInterventionObject.getAllinterventionRecords();
+    var response = { status: 200, data: intervention };
+    return res.status(200).send(response);
   }
 };
 exports.default = Intervention;

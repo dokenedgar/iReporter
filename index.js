@@ -16,6 +16,7 @@ app.post('/api/v1/auth/signup', User.create);
 // Sign-In
 app.post('/api/v1/auth/login', User.getUser);
 
+// ****************RED-FLAGS****************\\
 // create red-flag record/incident
 app.post('/api/v1/red-flags', RedFlag.create);
 
@@ -37,6 +38,9 @@ app.delete('/api/v1/red-flags/:id', RedFlag.deleteRedFlag);
 // INTERVENTION ROUTES
 // create intervention record
 app.post('/api/v1/interventions', Intervention.create);
+
+// Get All Interventions
+app.get('/api/v1/interventions', Intervention.getAllInterventions);
 
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));
