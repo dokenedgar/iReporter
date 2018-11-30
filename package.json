@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha build/test/testAPIs.js --exit",
+    "test": "nyc --reporter=html --reporter=text mocha build/test/testAPIs.js --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "rm -rf build && babel ./ -d build --ignore node_modules",
     "start": "npm run build"
   },
@@ -26,9 +27,11 @@
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   }
 }
