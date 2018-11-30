@@ -80,22 +80,21 @@ editInterventionComment(id, comment){
     return recordFound;
  }
 
-/*
- deleteRedFlag(id){
+
+ deleteIntervention(id){
     let recordFound = false;
     interventions.forEach((element, index) =>{
       if((element.id === id)){
         interventions.splice(index, 1);
         recordFound = {
             id,
-            message: "red-flag record has been deleted"
+            message: "Intervention record has been deleted"
         };
         return recordFound;
       }
     });
     return recordFound;
  }
- */
 
 }
 
