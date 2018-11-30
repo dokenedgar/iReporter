@@ -11,7 +11,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 // import db from '../../pgdb/dbconfig';
 // import uuidv4 from 'uuid/v4';
 
-var users = exports.users = [];
+var users = [];
 
 var UserClass = function () {
   function UserClass() {
