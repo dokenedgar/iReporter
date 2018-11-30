@@ -82,7 +82,21 @@ editRedFlagComment(id, comment){
       }
     });
     return recordFound;
+ }
 
+ deleteRedFlag(id){
+    let recordFound = false;
+    redFlags.forEach((element, index) =>{
+      if((element.id === id)){
+        redFlags.splice(index, 1);
+        recordFound = {
+            id,
+            message: "red-flag record has been deleted"
+        };
+        return recordFound;
+      }
+    });
+    return recordFound;
  }
 
 }
