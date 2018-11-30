@@ -49,8 +49,8 @@ class InterventionClass {
      return interventions;
  }
 
-/*
- editRedFlagLocation(id, latitude, longitude){
+
+ editInterventionLocation(id, latitude, longitude){
     let recordFound = false;
     interventions.forEach((element) =>{
       if((element.id === id)){
@@ -65,7 +65,7 @@ class InterventionClass {
     return recordFound;
 
  }
-*/
+
 /*
 editRedFlagComment(id, comment){
     let recordFound = false;

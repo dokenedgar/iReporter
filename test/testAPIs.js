@@ -127,7 +127,7 @@ describe('iReporter Test Suites', () => {
 
     describe('Intervention Tests', () => {
 
-        it('create an intervention record', () => {
+        it('create An intervention record', () => {
             return chai.request(app)
             .post('/api/v1/interventions')
             .send({
@@ -155,6 +155,19 @@ describe('iReporter Test Suites', () => {
         it('Get A Specific Intervention Record', () => {
             return chai.request(app)
             .get('/api/v1/interventions/12345678')
+            .then((res) => {
+                expect(res).to.have.status(400);
+                expect(res.body).to.be.an('object');
+            });
+        });
+
+        it('Edit An Intervention location', () => {
+            return chai.request(app)
+            .patch('/api/v1/interventions/12345678/location')
+            .send({
+                "latitude": 23.73453453234234234,
+                "longitude": 80.678765432190876
+            })
             .then((res) => {
                 expect(res).to.have.status(400);
                 expect(res.body).to.be.an('object');

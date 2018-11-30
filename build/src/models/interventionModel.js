@@ -66,24 +66,23 @@ var InterventionClass = function () {
     value: function getAllinterventionRecords() {
       return interventions;
     }
+  }, {
+    key: 'editInterventionLocation',
+    value: function editInterventionLocation(id, latitude, longitude) {
+      var recordFound = false;
+      interventions.forEach(function (element) {
+        if (element.id === id) {
+          element.location = latitude + ', ' + longitude;
+          recordFound = {
+            id: id,
+            message: "Updated red-flag record’s location"
+          };
+          return recordFound;
+        }
+      });
+      return recordFound;
+    }
 
-    /*
-     editRedFlagLocation(id, latitude, longitude){
-        let recordFound = false;
-        interventions.forEach((element) =>{
-          if((element.id === id)){
-            element.location =  `${latitude}, ${longitude}`;
-            recordFound = {
-                id,
-                message: "Updated red-flag record’s location"
-            };
-            return recordFound;
-          }
-        });
-        return recordFound;
-    
-     }
-    */
     /*
     editRedFlagComment(id, comment){
         let recordFound = false;

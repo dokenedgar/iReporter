@@ -61,6 +61,7 @@ app.delete('/api/v1/red-flags/:id', _redflagController2.default.deleteRedFlag);
 app.post('/api/v1/interventions', _interventionController2.default.create);
 app.get('/api/v1/interventions', _interventionController2.default.getAllInterventions);
 app.get('/api/v1/interventions/:id', _interventionController2.default.fetchSpecificIntervention);
+app.patch('/api/v1/interventions/:id/location', _interventionController2.default.editLocationIntervention);
 
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));

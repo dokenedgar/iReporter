@@ -51,6 +51,29 @@ var Intervention = {
       var _response = { status: 200, data: [result] };
       return res.status(200).send(_response);
     }
+  },
+  editLocationIntervention: function editLocationIntervention(req, res) {
+    if (!req.params.id || req.params.id.length < 5 || req.params.id.length > 20 || /\s/.test(req.params.id)) {
+      return res.status(400).send({ message: 'Error processing request. Please enter username with at least 5 charcters' });
+    }
+    if (!req.body.latitude || req.body.latitude.length < 2 || req.body.latitude.length > 30 || req.body.latitude > 90 || req.body.latitude < -90 || typeof req.body.latitude === 'string') {
+      return res.status(400).send({ message: 'LATITUDE. Phone number should have length of 11, containing only digits' });
+    }
+    if (!req.body.longitude || req.body.longitude.length < 2 || req.body.longitude.length > 30 || req.body.longitude > 180 || req.body.longitude < -180 || typeof req.body.latitude === 'string') {
+      return res.status(400).send({ message: 'LONGITUDE. Phone number should have length of 11, containing only digits' });
+    }
+    req.body.latitude = Math.round(req.body.latitude * 1e16) / 1e16;
+    req.body.longitude = Math.round(req.body.longitude * 1e16) / 1e16;
+
+    var result = _interventionModel.newInterventionObject.editInterventionLocation(req.params.id, req.body.latitude, req.body.longitude);
+
+    if (result === false) {
+      var response = { status: 400, error: 'Invalid login credentials' };
+      return res.status(400).send(response);
+    } else {
+      var _response2 = { status: 200, data: [result] };
+      return res.status(200).send(_response2);
+    }
   }
 };
 exports.default = Intervention;
