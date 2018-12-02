@@ -24,6 +24,10 @@ var _interventionController = require('./src/controllers/interventionController'
 
 var _interventionController2 = _interopRequireDefault(_interventionController);
 
+var _adminController = require('./src/controllers/adminController');
+
+var _adminController2 = _interopRequireDefault(_adminController);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
@@ -32,30 +36,16 @@ app.use(_express2.default.json());
 //app.set('port', 3030);
 app.set('port', process.env.PORT || 3030);
 
-// []
-// sign-up API
+// Sign-in & Sign-up
 app.post('/api/v1/auth/signup', _userController2.default.create);
-
-// Sign-In
 app.post('/api/v1/auth/login', _userController2.default.getUser);
 
-// ****************RED-FLAGS****************\\
-// create red-flag record/incident
+/* ***************RED-FLAGS*************** */
 app.post('/api/v1/red-flags', _redflagController2.default.create);
-
-// Get All Red-Flags
 app.get('/api/v1/red-flags', _redflagController2.default.getAllRedFlags);
-
-// Get A Specific Red-Flag Record
 app.get('/api/v1/red-flags/:id', _redflagController2.default.fetchSpecificRedFlag);
-
-// Edit Red-Flag Location
 app.patch('/api/v1/red-flags/:id/location', _redflagController2.default.editLocationRedFlag);
-
-// Edit Red-Flag Comment
 app.patch('/api/v1/red-flags/:id/comment', _redflagController2.default.editCommentRedFlag);
-
-// Delete A Red-Flag
 app.delete('/api/v1/red-flags/:id', _redflagController2.default.deleteRedFlag);
 
 // INTERVENTION ROUTES
@@ -66,6 +56,7 @@ app.patch('/api/v1/interventions/:id/location', _interventionController2.default
 app.patch('/api/v1/interventions/:id/comment', _interventionController2.default.editCommentIntervention);
 app.delete('/api/v1/interventions/:id', _interventionController2.default.deleteIntervention);
 
+app.patch('/api/v1/admin/:id', _adminController2.default.editStatus);
 //app.listen(3030, () => console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));
 exports.default = app;

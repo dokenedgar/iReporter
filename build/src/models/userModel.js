@@ -26,14 +26,12 @@ var UserClass = function () {
     // eslint-disable-next-line class-methods-use-this
     value: function create(data) {
 
-      // const userid = uuidv4();
       var arr = [];
       while (arr.length < 8) {
         var r = Math.floor(Math.random() * 10); // + 1;
         // if(arr.indexOf(r) === -1) arr.push(r);
         arr.push(r);
       }
-      //document.write(arr.toString);
 
       var newUser = {
         id: arr.join(''),
@@ -59,6 +57,19 @@ var UserClass = function () {
       users.forEach(function (element) {
         if (element.username === username && element.password === password) {
           userFound = element;
+          return userFound;
+        }
+      });
+      return userFound;
+    }
+  }, {
+    key: 'checkID',
+    value: function checkID(userid) {
+      var userFound = false;
+      //console.log(users);
+      users.forEach(function (element) {
+        if (Number(element.id) === userid) {
+          userFound = true;
           return userFound;
         }
       });

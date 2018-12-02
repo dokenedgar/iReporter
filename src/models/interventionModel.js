@@ -1,4 +1,4 @@
-
+import {  newUserObject } from '../models/userModel';
 export const interventions = [];
 
 class InterventionClass {
@@ -23,25 +23,32 @@ class InterventionClass {
       comment: data.comment
     }
 
-    interventions.push(newIntervention);
-    let {id} = newIntervention;
-    let response = {
-        id,
-        message: "Created Intervention record"
-    };
-    //return newRedFlag;
-    return response;
+    let checkid = newUserObject.checkID(data.userid);
+    if(checkid){
+      interventions.push(newIntervention);
+      let {id} = newIntervention;
+      let response = {
+          id,
+          message: "Created Intervention record"
+      };
+      //return newRedFlag;
+      return response;
+    }
+    else{
+      return false;
+    }
+
   }
 
   getSpecificIntervention(id) {
-    let userFound = false;
+    let interventionFound = false;
     interventions.forEach((element) =>{
       if((element.id === id)){
-        userFound = element;
-        return userFound;
+        interventionFound = element;
+        return interventionFound;
       }
     });
-    return userFound;
+    return interventionFound;
   }
 
   
@@ -50,10 +57,10 @@ class InterventionClass {
  }
 
 
- editInterventionLocation(id, latitude, longitude){
+ editInterventionLocation(id, userid, latitude, longitude){
     let recordFound = false;
     interventions.forEach((element) =>{
-      if((element.id === id)){
+      if((element.id === id)&& (element.createdBy === userid)){
         element.location =  `${latitude}, ${longitude}`;
         recordFound = {
             id,
@@ -61,14 +68,18 @@ class InterventionClass {
         };
         return recordFound;
       }
+      else if(element.id === id){
+        recordFound = true;
+        return recordFound;
+      }
     });
     return recordFound;
  }
 
-editInterventionComment(id, comment){
+editInterventionComment(id, userid, comment){
     let recordFound = false;
     interventions.forEach((element) =>{
-      if((element.id === id)){
+      if((element.id === id)&& (element.createdBy === userid)){
         element.comment =  comment;
         recordFound = {
             id,
@@ -76,20 +87,28 @@ editInterventionComment(id, comment){
         };
         return recordFound;
       }
+      else if(element.id === id){
+        recordFound = true;
+        return recordFound;
+      }
     });
     return recordFound;
  }
 
 
- deleteIntervention(id){
+ deleteIntervention(id, userid){
     let recordFound = false;
     interventions.forEach((element, index) =>{
-      if((element.id === id)){
+      if((element.id === id)&& (element.createdBy === userid)){
         interventions.splice(index, 1);
         recordFound = {
             id,
             message: "Intervention record has been deleted"
         };
+        return recordFound;
+      }
+      else if(element.id === id){
+        recordFound = true;
         return recordFound;
       }
     });

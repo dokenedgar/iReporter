@@ -3,8 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.newInterventionObject = exports.interventions = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _userModel = require('../models/userModel');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -39,27 +42,32 @@ var InterventionClass = function () {
         comment: data.comment
       };
 
-      interventions.push(newIntervention);
-      var id = newIntervention.id;
+      var checkid = _userModel.newUserObject.checkID(data.userid);
+      if (checkid) {
+        interventions.push(newIntervention);
+        var id = newIntervention.id;
 
-      var response = {
-        id: id,
-        message: "Created Intervention record"
-      };
-      //return newRedFlag;
-      return response;
+        var response = {
+          id: id,
+          message: "Created Intervention record"
+        };
+        //return newRedFlag;
+        return response;
+      } else {
+        return false;
+      }
     }
   }, {
     key: 'getSpecificIntervention',
     value: function getSpecificIntervention(id) {
-      var userFound = false;
+      var interventionFound = false;
       interventions.forEach(function (element) {
         if (element.id === id) {
-          userFound = element;
-          return userFound;
+          interventionFound = element;
+          return interventionFound;
         }
       });
-      return userFound;
+      return interventionFound;
     }
   }, {
     key: 'getAllinterventionRecords',
@@ -68,15 +76,18 @@ var InterventionClass = function () {
     }
   }, {
     key: 'editInterventionLocation',
-    value: function editInterventionLocation(id, latitude, longitude) {
+    value: function editInterventionLocation(id, userid, latitude, longitude) {
       var recordFound = false;
       interventions.forEach(function (element) {
-        if (element.id === id) {
+        if (element.id === id && element.createdBy === userid) {
           element.location = latitude + ', ' + longitude;
           recordFound = {
             id: id,
             message: "Updated Intervention record’s location"
           };
+          return recordFound;
+        } else if (element.id === id) {
+          recordFound = true;
           return recordFound;
         }
       });
@@ -84,15 +95,18 @@ var InterventionClass = function () {
     }
   }, {
     key: 'editInterventionComment',
-    value: function editInterventionComment(id, comment) {
+    value: function editInterventionComment(id, userid, comment) {
       var recordFound = false;
       interventions.forEach(function (element) {
-        if (element.id === id) {
+        if (element.id === id && element.createdBy === userid) {
           element.comment = comment;
           recordFound = {
             id: id,
             message: "Updated intervention record’s comment"
           };
+          return recordFound;
+        } else if (element.id === id) {
+          recordFound = true;
           return recordFound;
         }
       });
@@ -100,15 +114,18 @@ var InterventionClass = function () {
     }
   }, {
     key: 'deleteIntervention',
-    value: function deleteIntervention(id) {
+    value: function deleteIntervention(id, userid) {
       var recordFound = false;
       interventions.forEach(function (element, index) {
-        if (element.id === id) {
+        if (element.id === id && element.createdBy === userid) {
           interventions.splice(index, 1);
           recordFound = {
             id: id,
             message: "Intervention record has been deleted"
           };
+          return recordFound;
+        } else if (element.id === id) {
+          recordFound = true;
           return recordFound;
         }
       });
