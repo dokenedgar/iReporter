@@ -9,14 +9,12 @@ class UserClass {
   // eslint-disable-next-line class-methods-use-this
   create(data) {
     
-    // const userid = uuidv4();
     let arr = []
     while(arr.length < 8){
       var r = Math.floor(Math.random()*10);// + 1;
       // if(arr.indexOf(r) === -1) arr.push(r);
       arr.push(r);
     }
-    //document.write(arr.toString);
 
     const newUser = {
       id: arr.join(''),
@@ -47,6 +45,17 @@ class UserClass {
     return userFound;
   }
   
+  checkID(userid) {
+    let userFound = false;
+    //console.log(users);
+    users.forEach((element) =>{
+      if(( Number(element.id)  === userid )){
+        userFound = true;
+        return userFound;
+      }
+    });
+    return userFound;
+  }
 }
 
 export const newUserObject = new UserClass();

@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>31/31</span>
+        <span class='fraction'>34/34</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>31/31</span>
+        <span class='fraction'>34/34</span>
       </div>
     </div>
     <p class="quiet">
@@ -107,15 +107,7 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,22 +133,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,14 +147,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,6 +157,15 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
@@ -210,37 +194,28 @@ var _interventionController = require('./src/controllers/interventionController'
 &nbsp;
 var _interventionController2 = _interopRequireDefault(_interventionController);
 &nbsp;
+var _adminController = require('./src/controllers/adminController');
+&nbsp;
+var _adminController2 = _interopRequireDefault(_adminController);
+&nbsp;
 function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }
 &nbsp;
 var app = (0, _express2.default)();
 app.use(_express2.default.json());
 &nbsp;
-app.set('port', 3030);
+//app.set('port', 3030);
+app.set('port', process.env.PORT || 3030);
 &nbsp;
-// []
-// sign-up API
+// Sign-in &amp; Sign-up
 app.post('/api/v1/auth/signup', _userController2.default.create);
-&nbsp;
-// Sign-In
 app.post('/api/v1/auth/login', _userController2.default.getUser);
 &nbsp;
-// ****************RED-FLAGS****************\\
-// create red-flag record/incident
+/* ***************RED-FLAGS*************** */
 app.post('/api/v1/red-flags', _redflagController2.default.create);
-&nbsp;
-// Get All Red-Flags
 app.get('/api/v1/red-flags', _redflagController2.default.getAllRedFlags);
-&nbsp;
-// Get A Specific Red-Flag Record
 app.get('/api/v1/red-flags/:id', _redflagController2.default.fetchSpecificRedFlag);
-&nbsp;
-// Edit Red-Flag Location
 app.patch('/api/v1/red-flags/:id/location', _redflagController2.default.editLocationRedFlag);
-&nbsp;
-// Edit Red-Flag Comment
 app.patch('/api/v1/red-flags/:id/comment', _redflagController2.default.editCommentRedFlag);
-&nbsp;
-// Delete A Red-Flag
 app.delete('/api/v1/red-flags/:id', _redflagController2.default.deleteRedFlag);
 &nbsp;
 // INTERVENTION ROUTES
@@ -251,6 +226,7 @@ app.patch('/api/v1/interventions/:id/location', _interventionController2.default
 app.patch('/api/v1/interventions/:id/comment', _interventionController2.default.editCommentIntervention);
 app.delete('/api/v1/interventions/:id', _interventionController2.default.deleteIntervention);
 &nbsp;
+app.patch('/api/v1/admin/:id', _adminController2.default.editStatus);
 //app.listen(3030, () =&gt; console.log('Listening on Port 3030...'));
 app.listen(app.get('port'));
 exports.default = app;</pre></td></tr>
@@ -259,7 +235,7 @@ exports.default = app;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Nov 30 2018 13:36:43 GMT+0100 (W. Central Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Dec 02 2018 23:08:18 GMT+0100 (W. Central Africa Standard Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>
