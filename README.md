@@ -2,7 +2,7 @@
  
 [![Build Status](https://travis-ci.org/dokenedgar/iReporter.svg?branch=develop)](https://travis-ci.org/dokenedgar/iReporter)  [![Coverage Status](https://coveralls.io/repos/github/dokenedgar/iReporter/badge.svg?branch=develop)](https://coveralls.io/github/dokenedgar/iReporter?branch=develop)
 
-A Food ordering web-app that allows users to view food and order for food, and at the same time admins can view and act on those orders accordingly.
+A corruption reporting and intervention-seeking platform whereby users can call the attention of government agencies to pressing issues in the society
 
 ## Getting Started
 
