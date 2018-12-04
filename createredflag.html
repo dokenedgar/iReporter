@@ -13,7 +13,7 @@
     <div class="navlinks">
             <ul>
                     <li><a href="profile.html">Profile</a></li>
-                    <li><a href="createredflag.html">Create Red-Flags</a></li>
+                    <li class="active"><a href="createredflag.html">Create Red-Flags</a></li>
                     <li><a href="createintervention.html">Create Interventions</a></li>
                   </ul>
     </div>
@@ -22,15 +22,27 @@
                 <h1>Create A Red Flag Here:</h1>
                 <label>An incident linked to corruption</label><br>
                 
-                <div class="flex-container">
+                <div class="grid-container">
                     <label>Title:</label>
-                    <input type="text" id="txtusername">
-                </div>
-                <div class="flex-container">
-                <label>Location:</label>
+                    <label>Locat:</label>
+                   </div>
+                   
+                <div class="grid-container">
+                        <input type="text" id="txtusername">
+                        <select id="location"></select>
+                        
                 <!--<input type="text" id="txtlocation" onfocus="getLocation()">-->
-                <select id="location"></select>
                 </div>
+                <hr>
+                <div class="grid-container">
+                        <label>Description:</label>  
+                        <label></label> 
+                </div>
+                <div class="grid-container">
+                        <textarea id="desc"></textarea>
+                        <div id="mapHolder"></div>
+                </div>
+                <hr>
                 <div class="flex-container">
                         <!--<label>Latitude:</label>-->
                         <input type="text" id="txtlatitude" readonly>
@@ -39,26 +51,21 @@
                        <!-- <label>Longitude:</label> -->
                         <input type="text" id="txtlongitude" readonly>
                 </div>
-                <div class="flex-container">
-                        <label></label>
-                        <span>
-                        <div id="mapHolder"></div>
-                    </span>
-                </div>
                 
                 <div class="flex-container">
-                <label>Description:</label>
-                <textarea id="desc"></textarea>
+                
+                
                 </div>
-                <div class="flex-container">
+                <div class="grid-container">
                 <label>Images (Optional)</label>
-                <input id="browse" type="file" onchange="previewFiles()" multiple><br>
+                <label>Preview</label>
+                
                 
             </div>
-            <div class="flex-container">
-                    <label></label>
+            <div class="grid-container">
+                    <input id="browse" type="file" onchange="previewFiles()" multiple>
                     <div id="preview"></div>
-                    </div>
+            </div>
             <div class="flex-container">
                 <label></label>
                 <button onclick="createRedFlag()" id="buttonSignin">Submit</button>
