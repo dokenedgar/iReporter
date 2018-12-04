@@ -38,9 +38,13 @@ button:hover {
 input {
   font-size: 30px;
   margin: 20px;
+  outline: none;
   border-radius: 10px;
-  border: solid;
   text-align: center;
+  box-shadow: var(--shadow);
+}
+input:focus{
+  box-shadow: 0 0 0 2px black;
 }
 footer {
   padding: 20px;
