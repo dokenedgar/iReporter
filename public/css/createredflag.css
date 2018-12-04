@@ -9,6 +9,7 @@
 
 body {
     margin: 0;
+    font-family: 'Helvetica', 'Arial';
 }
 img {
     max-width: 100%;
@@ -29,7 +30,7 @@ img {
     border: 0;
 }
 .btn:hover {
-    background-color: rgb(4, 31, 4);
+    background-color: #111;
 }
 /* Navigation */
 .navlinks ul{
@@ -140,7 +141,7 @@ footer {
     width: 100%;
   }
   button:hover {
-    background-color: rgb(4, 31, 4);
+    background-color:  #111;
 }
 .flex-container{
     display: flex;

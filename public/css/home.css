@@ -9,6 +9,7 @@
 
 body {
     margin: 0;
+    font-family: 'Helvetica', 'Arial';
 }
 img {
     max-width: 100%;
@@ -26,10 +27,11 @@ img {
     border-radius: 15px;
     font-size: 2rem;
     text-align: center;
+    width: 50%;
     border: 0;
 }
 .btn:hover {
-    background-color: rgb(4, 31, 4);
+    background-color: #111;
 }
 /* Navigation */
 .navlinks ul{
@@ -58,39 +60,42 @@ img {
     display: grid;
     grid-gap: 20px;
     grid-template-areas: 
-        'showcase showcase'
-        'showcase showcase';
+        'showcase';
+        
 }
 /* Showcase */
 .showcase {
     grid-area: showcase;
-    min-height: 400px;
-    background: url(/public/images/mark.jpeg);
+    min-height: 200px;
+    background: url(/public/images/pens.jpg);
     background-size: cover;
     background-position: center;
-    padding: 10rem;
+    padding-bottom: 12rem;
+    padding-left: 14rem;
+    padding-right: 14rem;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column; 
     justify-content: center;
     box-shadow: var(--shadow);
 }
 
 .showcase h1 {
     font-size: 4rem;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     align-self: center;
     color: var(--light);
 }
 
 .showcase p {
     font-size: 1.3rem;
-    margin-top: 0;
+    margin-top: 20;
+    text-align: center;
     align-self: center;
-    color: var(--light);
+    color: black;
 }
 
 .btns {
+    margin: 20px;
     display: grid;
     grid-gap: 50px;
     grid-template-columns: 1fr 1fr;
