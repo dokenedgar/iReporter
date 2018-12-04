@@ -20,18 +20,38 @@
 	<div class="container">
             <div id="signup">
                 <h1>Sign Up To iReporter Here</h1>
-                <label>First Name:</label>
-                <input type="text" id="txtFname">
-                <label>Surname:</label>
-                <input type="text" id="txtSname">
-                <label>Phone:</label>
-                <input type="number" id="txtPhoneNum">
-                <label>Email:</label>
-                <input type="text" id="txtEmail">
-                <label>Username:</label>
-                <input type="text" id="txtUsername" >
-                <label>Password:</label>
-                <input type="password" id="txtPassword" required><br>
+                <div class="grid-container">
+                        <label>First Name:</label>
+                        <label>Surname:</label>
+                </div>
+                
+                <div class="grid-container">
+                        <input type="text" id="txtFname">
+                        <input type="text" id="txtSname">
+                </div>
+                
+                <div class="grid-container">
+                        <label>Phone:</label>
+                        <label>Email:</label>
+                </div>
+                
+                <div class="grid-container">
+                        <input type="number" id="txtPhoneNum">
+                        <input type="text" id="txtEmail">
+                </div>
+                
+                <div class="grid-container">
+                        <label>Username:</label>
+                        <label>Password:</label>
+                </div>
+                
+                <div class="grid-container">
+                        <input type="text" id="txtUsername" >
+                        <input type="password" id="txtPassword" required>
+                </div>
+                
+                
+                <br>
                 <button onclick="signUp()" id="buttonSignup">Submit</button>
                 <p><a href="signin.html">Already have an account? Sign in here.</a></p>
             </div>
