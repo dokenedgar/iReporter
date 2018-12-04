@@ -1,0 +1,130 @@
+/* CSS Variables {} */
+
+:root{
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+body {
+    margin: 0;
+    font-family: 'Helvetica', 'Arial';
+}
+img {
+    max-width: 100%;
+}
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.btn {
+    background: var(--dark);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 2rem;
+    text-align: center;
+    width: 50%;
+    border: 0;
+}
+.btn:hover {
+    background-color: #111;
+}
+/* Navigation */
+.navlinks ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+.navlinks li{
+    float: left;
+}
+.navlinks li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navlinks li a:hover{
+    background-color: #111;
+}
+
+/*Top Container*/
+.top-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 
+        'showcase';
+        
+}
+/* Showcase */
+.showcase {
+    grid-area: showcase;
+    min-height: 200px;
+    background: url(/iReporter/images/pens.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 12rem;
+    padding-left: 14rem;
+    padding-right: 14rem;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+.showcase h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    align-self: center;
+    color: var(--light);
+}
+
+.showcase p {
+    font-size: 1.3rem;
+    margin-top: 20;
+    text-align: center;
+    align-self: center;
+    color: black;
+}
+
+.btns {
+    margin: 20px;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+}
+
+/*Footer*/
+footer {
+    margin: 0;
+    background: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: 1rem;
+}
+
+@media (max-width: 700px){
+    .showcase {
+        min-height: 300px;
+    }
+    .navlinks li{
+        float: none;
+    }
+    .showcase h1{
+        font-size: 2.5rem;
+    }
+    .top-container {
+        grid-template-areas:
+            'showcase';
+    }
+    .btns {
+        grid-template-columns: 1fr;
+    }
+}
