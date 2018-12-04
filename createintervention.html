@@ -14,7 +14,7 @@
             <ul>
                     <li><a href="profile.html">Profile</a></li>
                     <li><a href="createredflag.html">Create Red-Flags</a></li>
-                    <li><a href="createintervention.html">Create Interventions</a></li>
+                    <li class="active"><a href="createintervention.html">Create Interventions</a></li>
                   </ul>
     </div>
     <div class="container">
@@ -22,57 +22,61 @@
                 <h1>Submit An Intervention Record Here:</h1>
                 <label>A call for a government agency to intervene e.g repair bad road sections, collapsed bridges, flooding e.t.c</label><br>
                 
-                <div class="flex-container">
-                    <label>Title:</label>
-                    <input type="text" id="txtusername">
-                </div>
-                <div class="flex-container">
-                        <label>Agency Concerned:</label>
-                        <input type="text" id="txtGovtAgency">
-                </div>
-                <div class="flex-container">
-                <label>Location:</label>
-                <!--<input type="text" id="txtlocation" onfocus="getLocation()">-->
-                <select id="location"></select>
-                </div>
-                <div class="flex-container">
-                        <!--<label>Latitude:</label>-->
-                        <input type="text" id="txtlatitude" readonly>
-                </div>
-                <div class="flex-container">
-                       <!-- <label>Longitude:</label> -->
-                        <input type="text" id="txtlongitude" readonly>
-                </div>
-                <div class="flex-container">
-                        <label></label>
-                        <span>
-                        <div id="mapHolder"></div>
-                    </span>
-                </div>
-                
-                <div class="flex-container">
-                <label>Description:</label>
-                <textarea id="desc"></textarea>
-                </div>
-                <div class="flex-container">
-                <label>Images (Optional)</label>
-                <input id="browse" type="file" onchange="previewFiles()" multiple><br>
-                
-            </div>
-            <div class="flex-container">
-                    <label></label>
-                    <div id="preview"></div>
+                <div class="grid-container">
+                        <label>Title:</label>
+                        <label>Location:</label>
+                       </div>
+                       
+                    <div class="grid-container">
+                            <input type="text" id="txtusername">
+                            <select id="location"></select>
+                            
+                    <!--<input type="text" id="txtlocation" onfocus="getLocation()">-->
                     </div>
-            <div class="flex-container">
-                <label></label>
-                <button onclick="createIntervention()" id="buttonSignin">Submit</button>
-            </div>
+                    <hr>
+                    <div class="grid-container">
+                            <label>Description:</label>  
+                            <label></label> 
+                    </div>
+                    <div class="grid-container">
+                            <textarea id="desc"></textarea>
+                            <div id="mapHolder"></div>
+                    </div>
+                    <hr>
+                    <div class="flex-container">
+                            <!--<label>Latitude:</label>-->
+                            <input type="text" id="txtlatitude" readonly>
+                    </div>
+                    <div class="flex-container">
+                           <!-- <label>Longitude:</label> -->
+                            <input type="text" id="txtlongitude" readonly>
+                    </div>
+                    
+                    <div class="flex-container">
+                    
+                    
+                    </div>
+                    <div class="grid-container">
+                    <label>Images (Optional)</label>
+                    <label>Preview</label>
+                    
+                    
+                </div>
+                <div class="grid-container">
+                        <input id="browse" type="file" onchange="previewFiles()" multiple>
+                        <div id="preview"></div>
+                </div>
+                <div class="grid-container">
+                    <label></label>
+                    <button onclick="createIntervention()" id="buttonSignin">Submit</button>
+                </div>
             </div>
             <p id="errors"></p>
         </div>
 
         <script type="text/javascript" src="/iReporter/js/uploadimages.js"></script>
         <script type="text/javascript" src="/iReporter/js/geolocation.js"></script>
+
         <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuF95maYZ_HJh7cWkwaSimg7cPILT_pxs&callback=getLocation">
     </script>
