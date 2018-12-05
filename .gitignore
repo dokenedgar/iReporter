@@ -2,3 +2,5 @@
 /.nyc_output
 /coverage
 /build
+
+#"build": "rm -rf build && babel ./ -d build --ignore node_modules",
