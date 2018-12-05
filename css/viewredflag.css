@@ -1,7 +1,7 @@
 /* CSS Variables {} */
 
 :root{
-    --primary: rgb(252, 245, 245);
+    --primary: rgba(238, 240, 222, 0.952);
     --dark: #333;
     --light: #fff;
     --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
@@ -18,7 +18,9 @@ img {
     display: grid;
     grid-gap: 20px;
 }
-
+.active {
+    background-color: #111;
+}
 .btn {
     background: var(--dark);
     color: var(--light);
@@ -235,8 +237,8 @@ footer {
 .status {
     text-align: center;
 }
-.box:hover {
-    background: rgb(4, 31, 4);
+.btn_link:hover {
+    background: #111;
     color: #fff;
 }
 .box span {

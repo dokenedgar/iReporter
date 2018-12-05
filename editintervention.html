@@ -17,73 +17,60 @@
                     <li><a href="interventions.html">My Interventions</a></li>
                   </ul>
     </div>
-    <div class="container">
-            <div id="signup">
-                <h1>Edit An Intervention Record Here:</h1>
-                <label>A call for a government agency to intervene e.g repair bad road sections, collapsed bridges, flooding e.t.c</label><br>
-                
-                <div class="flex-container">
-                    <label>Title:</label>
-                    <input type="text" id="txtusername" value="Lorem ipsum dolor sit, amet consectetur adipisicing elit">
-                </div>
-                <div class="flex-container">
-                        <label>Status:</label>
-                        <input type="text" id="txtstatus" readonly value="DRAFT">
+
+        <div class="container">
+                <div id="signup">
+                        <h1>Edit An Intervention Record Here:</h1>
+                        <label>A call for a government agency to intervene e.g repair bad road sections, collapsed bridges, flooding e.t.c</label><br>
+        
+                    <div class="grid-container">
+                        <label>Title:</label>
+                        <label>Location:</label>
                     </div>
-                <div class="flex-container">
-                        <label>Agency Concerned:</label>
-                        <input type="text" id="txtGovtAgency" value="FERMA">
-                </div>
-                <div class="flex-container">
-                <label>Location:</label>
-                <!--<input type="text" id="txtlocation" onfocus="getLocation()">-->
-                <select id="location"></select>
-                </div>
-                <div class="flex-container">
+        
+                    <div class="grid-container">
+                        <input type="text" id="txtusername" value="lorem loremlorem lorem lorem lorem lorem">
+                        <select id="location"></select>
+        
+                        <!--<input type="text" id="txtlocation" onfocus="getLocation()">-->
+                    </div>
+                    <hr>
+                    <div class="grid-container">
+                        <label>Description:</label>
+                        <label></label>
+                    </div>
+                    <div class="grid-container">
+                        <textarea id="desc">lorem loremlorem lorem lorem lorem lorem lorem loremlorem lorem lorem lorem lorem</textarea>
+                        <div id="mapHolder"></div>
+                    </div>
+                    <hr>
+                    
                         <!--<label>Latitude:</label>-->
                         <input type="text" id="txtlatitude" readonly>
-                </div>
-                <div class="flex-container">
-                       <!-- <label>Longitude:</label> -->
+                        <!-- <label>Longitude:</label> -->
                         <input type="text" id="txtlongitude" readonly>
-                </div>
-                <div class="flex-container">
+            
+                    <div class="grid-container">
+                        <label>Images (Optional)</label>
+                        <label>Preview</label>
+        
+        
+                    </div>
+                    <div class="grid-container">
+                        <input id="browse" type="file" onchange="previewFiles()" multiple>
+                        <div id="preview">
+                            <img src="/iReporter/images/pens.jpg">
+                            <img src="/iReporter/images/pens.jpg">
+                            <img src="/iReporter/images/pens.jpg">
+                        </div>
+                    </div>
+                    <div class="grid-container">
                         <label></label>
-                        <span>
-                        <div id="mapHolder"></div>
-                    </span>
-                </div>
-                
-                <div class="flex-container">
-                <label>Description:</label>
-                <textarea id="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, reprehenderit. Ullam et perspiciatis necessitatibus possimus eius, consequuntur error impedit magni.</textarea>
-                </div>
-                <div class="flex-container">
-                <label>Images (Optional)</label>
-                <input id="browse" type="file" onchange="previewFiles()" multiple><br>
-                
-            </div>
-            <div class="flex-container">
-                    <label></label>
-                    <div id="preview"></div>
+                        <button onclick="createRedFlag()" id="buttonSignin">Submit</button>
                     </div>
-                    <div class="flex-container">
-                            <label></label>
-                            <div class="imgPreview">
-                                <img src="/iReporter/images/mark.jpeg">
-                                <img src="/iReporter/images/mark.jpeg">
-                                <img src="/iReporter/images/mark.jpeg">
-                                <img src="/iReporter/images/mark.jpeg">
-                            </div>
-                    </div>
-            <div class="flex-container">
-                <label></label>
-                <button onclick="signIn()" id="buttonSignin">Submit</button>
+                </div>
+                <p id="errors"></p>
             </div>
-            </div>
-            <p id="errors"></p>
-        </div>
-
         <script type="text/javascript" src="/iReporter/js/uploadimages.js"></script>
         <script type="text/javascript" src="/iReporter/js/geolocation.js"></script>
         <script async defer

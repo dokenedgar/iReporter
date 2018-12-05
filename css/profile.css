@@ -152,13 +152,21 @@ footer {
 .profiledetails{
     background: var(--primary);
     font-size: 1.2rem;
-    text-align: center;
+    text-align: left;
     padding: 1.5rem ;
     box-shadow: var(--shadow);
 }
 .profiledetails span {
     font-weight: bold;
 }
+.active {
+    background-color: #111;
+}
+
+.sub-head {
+    text-align: center;
+}
+
 .imgPreview{
     flex: 2;
     display: grid;
@@ -191,10 +199,7 @@ h1 {
 .status {
     text-align: center;
 }
-.box:hover {
-    background: rgb(4, 31, 4);
-    color: #fff;
-}
+
 .box span {
     font-weight: bold;
 }
@@ -203,7 +208,16 @@ h1 {
     color: var(--light);
     padding: 0.6rem 1.3rem;
     text-decoration: none;
+    
     border: 0;
+}
+.btn_link:hover {
+    background: #111;
+    color: #fff;
+}
+.box a {
+    justify-self: center;
+    width: 100%;
 }
 
 @media (max-width: 700px){
