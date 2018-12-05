@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha /home/travis/build/dokenedgar/iReporter/build/test/testAPIs.js --exit",
+    "test": "nyc --reporter=html --reporter=text mocha build/test/testAPIs.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "build": "rm -rf build && babel /home/travis/build/dokenedgar/iReporter/ -d build --ignore node_modules",
+    "build": "rm -rf build && babel ./ -d build --ignore node_modules",
     "start": "npm run build"
   },
   "repository": {
