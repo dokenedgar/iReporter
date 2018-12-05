@@ -1,6 +1,6 @@
 /* CSS Variables {} */
 
-:root{
+:root {
     --primary: #ddd;
     --dark: #333;
     --light: #fff;
@@ -11,9 +11,11 @@ body {
     margin: 0;
     font-family: 'Helvetica', 'Arial';
 }
+
 img {
     max-width: 100%;
 }
+
 .wrapper {
     display: grid;
     grid-gap: 20px;
@@ -30,28 +32,33 @@ img {
     width: 50%;
     border: 0;
 }
+
 .btn:hover {
     background-color: #111;
 }
+
 /* Navigation */
-.navlinks ul{
+.navlinks ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
 }
-.navlinks li{
+
+.navlinks li {
     float: left;
 }
-.navlinks li a{
+
+.navlinks li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
-.navlinks li a:hover{
+
+.navlinks li a:hover {
     background-color: #111;
 }
 
@@ -59,10 +66,10 @@ img {
 .top-container {
     display: grid;
     grid-gap: 20px;
-    grid-template-areas: 
+    grid-template-areas:
         'showcase';
-        
 }
+
 /* Showcase */
 .showcase {
     grid-area: showcase;
@@ -74,7 +81,7 @@ img {
     padding-left: 14rem;
     padding-right: 14rem;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     box-shadow: var(--shadow);
 }
@@ -110,20 +117,24 @@ footer {
     padding: 1rem;
 }
 
-@media (max-width: 700px){
+@media (max-width: 700px) {
     .showcase {
         min-height: 300px;
     }
-    .navlinks li{
+
+    .navlinks li {
         float: none;
     }
-    .showcase h1{
+
+    .showcase h1 {
         font-size: 2.5rem;
     }
+
     .top-container {
         grid-template-areas:
             'showcase';
     }
+
     .btns {
         grid-template-columns: 1fr;
     }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,78 +9,68 @@
     <title>Edit Intervention Call| iReporter </title>
 </head>
 
-
 <body>
     <div class="navlinks">
-            <ul>
-                    <li><a href="index.html">Profile</a></li>
-                    <li><a href="redflags.html">My Red-Flags</a></li>
-                    <li><a href="interventions.html">My Interventions</a></li>
-                  </ul>
+        <ul>
+            <li><a href="index.html">Profile</a></li>
+            <li><a href="redflags.html">My Red-Flags</a></li>
+            <li><a href="interventions.html">My Interventions</a></li>
+        </ul>
     </div>
 
-        <div class="container">
-                <div id="signup">
-                        <h1>Edit An Intervention Record Here:</h1>
-                        <label>A call for a government agency to intervene e.g repair bad road sections, collapsed bridges, flooding e.t.c</label><br>
-        
-                    <div class="grid-container">
-                        <label>Title:</label>
-                        <label>Location:</label>
-                    </div>
-        
-                    <div class="grid-container">
-                        <input type="text" id="txtusername" value="lorem loremlorem lorem lorem lorem lorem">
-                        <select id="location"></select>
-        
-                        <!--<input type="text" id="txtlocation" onfocus="getLocation()">-->
-                    </div>
-                    <hr>
-                    <div class="grid-container">
-                        <label>Description:</label>
-                        <label></label>
-                    </div>
-                    <div class="grid-container">
-                        <textarea id="desc">lorem loremlorem lorem lorem lorem lorem lorem loremlorem lorem lorem lorem lorem</textarea>
-                        <div id="mapHolder"></div>
-                    </div>
-                    <hr>
-                    
-                        <!--<label>Latitude:</label>-->
-                        <input type="text" id="txtlatitude" readonly>
-                        <!-- <label>Longitude:</label> -->
-                        <input type="text" id="txtlongitude" readonly>
-            
-                    <div class="grid-container">
-                        <label>Images (Optional)</label>
-                        <label>Preview</label>
-        
-        
-                    </div>
-                    <div class="grid-container">
-                        <input id="browse" type="file" onchange="previewFiles()" multiple>
-                        <div id="preview">
-                            <img src="/iReporter/images/pens.jpg">
-                            <img src="/iReporter/images/pens.jpg">
-                            <img src="/iReporter/images/pens.jpg">
-                        </div>
-                    </div>
-                    <div class="grid-container">
-                        <label></label>
-                        <button onclick="createRedFlag()" id="buttonSignin">Submit</button>
-                    </div>
-                </div>
-                <p id="errors"></p>
+    <div class="container">
+        <div id="signup">
+            <h1>Edit An Intervention Record Here:</h1>
+            <label>A call for a government agency to intervene e.g repair bad road sections, collapsed bridges,
+                flooding e.t.c</label><br>
+            <div class="grid-container">
+                <label>Title:</label>
+                <label>Location:</label>
             </div>
-        <script type="text/javascript" src="/iReporter/js/uploadimages.js"></script>
-        <script type="text/javascript" src="/iReporter/js/geolocation.js"></script>
-        <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuF95maYZ_HJh7cWkwaSimg7cPILT_pxs&callback=getLocation">
+            <div class="grid-container">
+                <input type="text" id="txtusername" value="lorem loremlorem lorem lorem lorem lorem">
+                <select id="location"></select>
+            </div>
+            <hr>
+            <div class="grid-container">
+                <label>Description:</label>
+                <label></label>
+            </div>
+            <div class="grid-container">
+                <textarea id="desc">lorem loremlorem lorem lorem lorem lorem lorem loremlorem lorem lorem lorem lorem</textarea>
+                <div id="mapHolder"></div>
+            </div>
+            <hr>
+            <input type="text" id="txtlatitude" readonly>
+            <input type="text" id="txtlongitude" readonly>
+            <div class="grid-container">
+                <label>Images (Optional)</label>
+                <label>Preview</label>
+            </div>
+            <div class="grid-container">
+                <input id="browse" type="file" onchange="previewFiles()" multiple>
+                <div id="preview">
+                    <img src="/iReporter/images/pens.jpg">
+                    <img src="/iReporter/images/pens.jpg">
+                    <img src="/iReporter/images/pens.jpg">
+                </div>
+            </div>
+            <div class="grid-container">
+                <label></label>
+                <button onclick="createRedFlag()" id="buttonSignin">Submit</button>
+            </div>
+        </div>
+        <p id="errors"></p>
+    </div>
+    <script type="text/javascript" src="/iReporter/js/uploadimages.js"></script>
+    <script type="text/javascript" src="/iReporter/js/geolocation.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuF95maYZ_HJh7cWkwaSimg7cPILT_pxs&callback=getLocation">
     </script>
     <!--Footer-->
     <footer>
-            <p>iReporter &copy; 2018</p>
-        </footer>
+        <p>iReporter &copy; 2018</p>
+    </footer>
     <!-- Wrapper Ends-->
 </body>
+
 </html>

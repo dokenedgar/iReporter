@@ -9,7 +9,6 @@
     <title>Create Red-Flag | iReporter </title>
 </head>
 
-
 <body>
     <div class="navlinks">
         <ul>
@@ -22,17 +21,13 @@
         <div id="signup">
             <h1>Create A Red Flag Here:</h1>
             <label>An incident linked to corruption</label><br>
-
             <div class="grid-container">
                 <label>Title:</label>
                 <label>Location:</label>
             </div>
-
             <div class="grid-container">
                 <input type="text" id="txtusername">
                 <select id="location"></select>
-
-                <!--<input type="text" id="txtlocation" onfocus="getLocation()">-->
             </div>
             <hr>
             <div class="grid-container">
@@ -44,17 +39,11 @@
                 <div id="mapHolder"></div>
             </div>
             <hr>
-            
-                <!--<label>Latitude:</label>-->
-                <input type="text" id="txtlatitude" readonly>
-                <!-- <label>Longitude:</label> -->
-                <input type="text" id="txtlongitude" readonly>
-    
+            <input type="text" id="txtlatitude" readonly>
+            <input type="text" id="txtlongitude" readonly>
             <div class="grid-container">
                 <label>Images (Optional)</label>
                 <label>Preview</label>
-
-
             </div>
             <div class="grid-container">
                 <input id="browse" type="file" onchange="previewFiles()" multiple>

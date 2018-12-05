@@ -1,6 +1,6 @@
 /* CSS Variables {} */
 
-:root{
+:root {
     --primary: #ddd;
     --dark: #333;
     --light: #fff;
@@ -11,9 +11,11 @@ body {
     margin: 0;
     font-family: 'Helvetica', 'Arial';
 }
+
 img {
     max-width: 100%;
 }
+
 .wrapper {
     display: grid;
     grid-gap: 20px;
@@ -29,28 +31,33 @@ img {
     text-align: center;
     border: 0;
 }
+
 .btn:hover {
     background-color: #111;
 }
+
 /* Navigation */
-.navlinks ul{
+.navlinks ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
 }
-.navlinks li{
+
+.navlinks li {
     float: left;
 }
-.navlinks li a{
+
+.navlinks li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
-.navlinks li a:hover{
+
+.navlinks li a:hover {
     background-color: #111;
 }
 
@@ -58,10 +65,11 @@ img {
 .top-container {
     display: grid;
     grid-gap: 20px;
-    grid-template-areas: 
+    grid-template-areas:
         'showcase showcase'
         'showcase showcase';
 }
+
 /* Showcase */
 .showcase {
     grid-area: showcase;
@@ -109,27 +117,30 @@ footer {
     width: 80%;
     margin: auto;
     overflow: hidden;
-  }
-  /*signup*/
+}
+
+/*signup*/
 #signup {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     font-size: 16px;
-  }
-  
-  #signup label {
+}
+
+#signup label {
     font-size: 20px;
-    
-  }
-  #errors {
+
+}
+
+#errors {
     font-size: 20px;
     display: block;
     text-align: center;
     color: red;
-  }
-  button {
+}
+
+button {
     background-color: #333;
     font-size: 25px;
     border: none;
@@ -138,45 +149,55 @@ footer {
     color: white;
     padding: 15px;
     width: 50%;
-  }
-  button:hover {
-    background-color: #111;;
 }
-  input {
+
+button:hover {
+    background-color: #111;
+    ;
+}
+
+input {
     font-size: 30px;
     outline: none;
     margin: 20px;
     border-radius: 10px;
     text-align: center;
     box-shadow: var(--shadow);
-  }
-  input:focus{
+}
+
+input:focus {
     box-shadow: 0 0 0 2px black;
-  }
-  .grid-container{
+}
+
+.grid-container {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr;
 }
+
 .grid-container label {
     text-align: center;
 }
-  
 
-@media (max-width: 700px){
+
+@media (max-width: 700px) {
     .showcase {
         min-height: 300px;
     }
-    .navlinks li{
+
+    .navlinks li {
         float: none;
     }
-    .showcase h1{
+
+    .showcase h1 {
         font-size: 2.5rem;
     }
+
     .top-container {
         grid-template-areas:
             'showcase';
     }
+
     .btns {
         grid-template-columns: 1fr;
     }
