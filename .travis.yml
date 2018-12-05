@@ -5,7 +5,7 @@ node_js:
 
 before_install:
   npm i -g mocha babel-preset-env chai chai-http babel-cli nyc coveralls
-  
+  npm run start
 
 after_success:
   npm run coverage
