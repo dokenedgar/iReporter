@@ -1,9 +1,9 @@
 import express from 'express';
 import path from 'path';
-import User from './src/controllers/userController';
-import RedFlag from './src/controllers/redflagController';
-import Intervention from './src/controllers/interventionController';
-import Admin from './src/controllers/adminController';
+import User from './server/src/controllers/userController';
+import RedFlag from './server/src/controllers/redflagController';
+import Intervention from './server/src/controllers/interventionController';
+import Admin from './server/src/controllers/adminController';
 
 const app = express();
 app.use(express.json());
@@ -15,7 +15,7 @@ app.set('port', process.env.PORT || 3030);
 app.post('/api/v1/auth/signup', User.create);
 app.post('/api/v1/auth/login', User.getUser);
 
-/* ***************RED-FLAGS*************** */
+// RED-FLAGS
 app.post('/api/v1/red-flags', RedFlag.create);
 app.get('/api/v1/red-flags', RedFlag.getAllRedFlags);
 app.get('/api/v1/red-flags/:id', RedFlag.fetchSpecificRedFlag);
