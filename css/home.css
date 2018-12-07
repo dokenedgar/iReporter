@@ -74,7 +74,7 @@ img {
 .showcase {
     grid-area: showcase;
     min-height: 200px;
-    background: url(/images/pens.jpg);
+    background: url(/iReporter/images/pens.jpg);
     background-size: cover;
     background-position: center;
     padding-bottom: 20rem;
