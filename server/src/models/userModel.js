@@ -41,9 +41,10 @@ class UserClass {
 
   checkID(userid) {
     let userFound = false;
-    //console.log(users);
+    
     users.forEach((element) => {
-      if ((Number(element.id) === userid)) {
+      
+      if (element.id === userid) {
         userFound = true;
         return userFound;
       }

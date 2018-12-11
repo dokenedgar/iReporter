@@ -6,7 +6,6 @@ import {
 
 const RedFlag = {
   create(req, res) {
-
     if ((req.body.latitude > 90) || (req.body.latitude < -90)) {
       return res.status(400).send({
         status: 400,
@@ -42,6 +41,7 @@ const RedFlag = {
 
   getAllRedFlags(req, res) {
     const redFlags = newRedFlagObject.getAllRedFlagsRecord();
+   //console.log('FromredF: ', req.authData);
     if (redFlags.length === 0) {
       return res.status(200).send({
         status: 200,
@@ -93,7 +93,7 @@ const RedFlag = {
     req.body.latitude = Math.round(req.body.latitude * 1e16) / 1e16;
     req.body.longitude = Math.round(req.body.longitude * 1e16) / 1e16;
 
-    const result = newRedFlagObject.editRedFlagLocation(req.params.id, req.body.userid, req.body.latitude, req.body.longitude);
+    const result = newRedFlagObject.editRedFlagLocation(req.params.id, req.body.userId, req.body.latitude, req.body.longitude);
 
     if (result === false) {
       const response = {
@@ -119,7 +119,7 @@ const RedFlag = {
 
   editCommentRedFlag(req, res) {
 
-    const result = newRedFlagObject.editRedFlagComment(req.params.id, req.body.userid, req.body.comment);
+    const result = newRedFlagObject.editRedFlagComment(req.params.id, req.body.userId, req.body.comment);
 
     if (result === false) {
       const response = {
@@ -145,7 +145,7 @@ const RedFlag = {
 
   deleteRedFlag(req, res) {
 
-    const result = newRedFlagObject.deleteRedFlag(req.params.id, req.body.userid);
+    const result = newRedFlagObject.deleteRedFlag(req.params.id, req.body.userId);
 
     if (result === false) {
       const response = {
