@@ -10,7 +10,6 @@ const User = {
         token,
         data: [user]
       };
-      
       return res.status(201).send(response);
     });
 
@@ -25,11 +24,14 @@ const User = {
       };
       return res.status(400).send(response);
     } else {
-      const response = {
-        status: 200,
-        data: [result]
-      };
-      return res.status(200).send(response);
+      jwtObject.createToken(result, function(token){
+        const response = {
+          status: 200,
+          token,
+          data: [result]
+        };
+        return res.status(200).send(response);
+      });
     }
   },
 

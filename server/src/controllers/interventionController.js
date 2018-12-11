@@ -16,6 +16,18 @@ const Intervention = {
         error: 'Please enter a valid longitude coordinate, between 180 and -180'
       });
     }
+    if((typeof req.body.latitude === 'string') || (typeof req.body.longitude === 'string')){
+      return res.status(400).send({
+        status: 400,
+        error: 'Please enter a non-string coordinates, between 180 and -180'
+      });
+    }
+    if(typeof req.body.comment !== 'string'){
+      return res.status(400).send({
+        status: 400,
+        error: 'Please enter a string as the comment for your intervention record'
+      });
+    }
     req.body.latitude = Math.round( req.body.latitude * 1e16 ) / 1e16;
     req.body.longitude = Math.round( req.body.longitude * 1e16 ) / 1e16;
     
@@ -64,6 +76,12 @@ const Intervention = {
         error: 'Please enter a valid longitude coordinate, between 180 and -180'
       });
     }
+    if((typeof req.body.latitude === 'string') || (typeof req.body.longitude === 'string')){
+      return res.status(400).send({
+        status: 400,
+        error: 'Please enter a non-string coordinates, between 180 and -180'
+      });
+    }
       req.body.latitude = Math.round( req.body.latitude * 1e16 ) / 1e16;
       req.body.longitude = Math.round( req.body.longitude * 1e16 ) / 1e16;
   
@@ -85,6 +103,12 @@ const Intervention = {
   },
 
   editCommentIntervention(req, res) {
+    if(typeof req.body.comment !== 'string'){
+      return res.status(400).send({
+        status: 400,
+        error: 'Please enter a string as the comment for your intervention record'
+      });
+    }
   
     const result = newInterventionObject.editInterventionComment(req.params.id, req.body.userId, req.body.comment);
 
