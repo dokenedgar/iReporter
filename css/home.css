@@ -34,7 +34,7 @@ img {
 }
 
 .btn:hover {
-    background-color: #111;
+    background-color: rgb(82, 73, 73);
 }
 
 /* Navigation */
@@ -46,10 +46,6 @@ img {
     background-color: #333;
 }
 
-.navlinks li {
-    float: left;
-}
-
 .navlinks li a {
     display: block;
     color: white;
@@ -57,7 +53,22 @@ img {
     padding: 14px 16px;
     text-decoration: none;
 }
+.left {
+    float: left;
+}
+.right{
+    float: right;
+}
 
+.active{
+    background-color: #111;
+}
+p a{
+    color: brown;
+}
+p a:hover {
+    color: #111;
+}
 .navlinks li a:hover {
     background-color: #111;
 }
@@ -73,7 +84,7 @@ img {
 /* Showcase */
 .showcase {
     grid-area: showcase;
-    min-height: 200px;
+    height: 200px;
     background: url(/iReporter/images/pens.jpg);
     background-size: cover;
     background-position: center;
@@ -84,11 +95,13 @@ img {
     flex-direction: column;
     justify-content: center;
     box-shadow: var(--shadow);
+    
 }
 
 .showcase h1 {
     font-size: 4rem;
     margin-bottom: 10px;
+    margin-top: 50px;
     align-self: center;
     color: var(--light);
 }
@@ -107,7 +120,11 @@ img {
     grid-gap: 50px;
     grid-template-columns: 1fr 1fr;
 }
-
+.btnss {
+    align-self: center;
+    margin: 60px;
+    text-align: center;
+}
 /*Footer
     margin: 0;
     background: var(--dark);
@@ -115,20 +132,7 @@ img {
     text-align: center;
     padding: 1rem;
 */
-footer {
 
-
-    padding: 20px;
-    margin-top: 0px;
-    color: #ffffff;
-    background-color: #333;
-    text-align: center;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 50px;
-    width: 97%;
-}
 
 @media (max-width: 700px) {
 
@@ -164,4 +168,6 @@ footer {
     .btns {
         grid-template-columns: 1fr;
     }
+
+
 }

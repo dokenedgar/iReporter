@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/iReporter/css/createredflag.css">
-    <title>Edit Intervention Call| iReporter </title>
+    <title>Edit Intervention Record | iReporter </title>
 </head>
 
 <body>
@@ -20,45 +20,46 @@
 
     <div class="container">
         <div id="signup">
-            <h1>Edit An Intervention Record Here:</h1>
-            <label>A call for a government agency to intervene e.g repair bad road sections, collapsed bridges,
-                flooding e.t.c</label><br>
-            <div class="grid-container">
-                <label>Title:</label>
-                <label>Location:</label>
-            </div>
-            <div class="grid-container">
-                <input type="text" id="txtusername" value="Bad state of Primary School">
-                <select id="location"></select>
-            </div>
-            <hr>
-            <div class="grid-container">
-                <label>Description:</label>
-                <label></label>
-            </div>
-            <div class="grid-container">
-                <textarea id="desc">The primary school here is so dilapidated that children learn under trees. This is not ideal for learning at all.</textarea>
-                <div id="mapHolder"></div>
-            </div>
-            <hr>
-            <input type="text" id="txtlatitude" readonly>
-            <input type="text" id="txtlongitude" readonly>
-            <div class="grid-container">
-                <label>Images (Optional)</label>
-                <label>Preview</label>
-            </div>
-            <div class="grid-container">
-                <input id="browse" type="file" onchange="previewFiles()" multiple>
-                <div id="preview">
-                    <img src="/iReporter/images/pens.jpg">
-                    <img src="/iReporter/images/pens.jpg">
-                    <img src="/iReporter/images/pens.jpg">
+                <h1>Create An Intervention Record Here:</h1>
+                <label>A call for a government agency to intervene e.g repair bad road sections, collapsed
+                        bridges,
+                        flooding e.t.c</label><br>
+                <div class="flex-container">
+                        <label>Title:</label>
+                        <input type="text" id="txtusername" value="Bad state of Primary School">
+
                 </div>
-            </div>
-            <div class="grid-container">
-                <label></label>
-                <button onclick="createRedFlag()" id="buttonSignin">Submit</button>
-            </div>
+                <div class="flex-container">
+                        <label>Location:</label>
+                        <select id="location"></select>
+                </div>
+                <div class="flex-container">
+                        <label></label>
+                        <div id="mapHolder"></div>
+                </div>
+                <div class="flex-container">
+                        <label>Description:</label>
+                        <textarea id="desc">The primary school here is so dilapidated that children learn under trees. This is not ideal for learning at all.</textarea>
+                </div>
+                <hr>
+                <input type="text" id="txtlatitude" readonly>
+                <input type="text" id="txtlongitude" readonly>
+                <div class="grid-container">
+                        <label>Images (Optional)</label>
+                        <label>Preview</label>
+                </div>
+                <div class="grid-container">
+                        <input id="browse" type="file" onchange="previewFiles()" multiple>
+                        <div id="preview">
+                                <img src="/iReporter/images/pens.jpg">
+                                <img src="/iReporter/images/pens.jpg">
+                                <img src="/iReporter/images/pens.jpg">
+                        </div>
+                </div>
+                <div class="grid-container">
+                        <label></label>
+                        <button onclick="createRedFlag()" id="buttonSignin">Submit</button>
+                </div>
         </div>
         <p id="errors"></p>
     </div>

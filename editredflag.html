@@ -18,46 +18,47 @@
         </ul>
     </div>
     <div class="container">
-        <div id="signup">
-            <h1>Edit Your Red Flag:</h1>
-            <label>An incident linked to corruption</label><br>
-            <div class="grid-container">
-                <label>Title:</label>
-                <label>Location:</label>
-            </div>
-            <div class="grid-container">
-                <input type="text" id="txtusername" value="Case of a Bribe asked before a promotion">
-                <select id="location"></select>
-            </div>
-            <hr>
-            <div class="grid-container">
-                <label>Description:</label>
-                <label></label>
-            </div>
-            <div class="grid-container">
-                <textarea id="desc">I am due for promotion at the ministry of finance, but my Director, Mr. Kevin Anderson is asking for 45,000 before signing my promotion lette.</textarea>
-                <div id="mapHolder"></div>
-            </div>
-            <hr>
-            <input type="text" id="txtlatitude" readonly>
-            <input type="text" id="txtlongitude" readonly>
-            <div class="grid-container">
-                <label>Images (Optional)</label>
-                <label>Preview</label>
-            </div>
-            <div class="grid-container">
-                <input id="browse" type="file" onchange="previewFiles()" multiple>
-                <div id="preview">
-                    <img src="/iReporter/images/pens.jpg">
-                    <img src="/iReporter/images/pens.jpg">
-                    <img src="/iReporter/images/pens.jpg">
+            <div id="signup">
+                    <h1>Edit Your Red Flag Here:</h1>
+                    <label>An incident linked to corruption</label><br>
+                    <div class="flex-container">
+                        <label>Title:</label>
+                        <input type="text" id="txtusername" value="Case of a Bribe asked before a promotion">
+                        
+                    </div>
+                    <div class="flex-container">
+                            <label>Location:</label>
+                        <select id="location"></select>
+                    </div>
+                    <div class="flex-container">
+                            <label></label>
+                        <div id="mapHolder"></div>
+                    </div>
+                    <div class="flex-container">
+                            <label>Description:</label>
+                            <textarea id="desc">I am due for promotion at the ministry of finance, but my Director, Mr. Kevin Anderson is asking for 45,000 before signing my promotion lette.</textarea>
+                        </div>
+                    <hr>
+                    <input type="text" id="txtlatitude" readonly>
+                    <input type="text" id="txtlongitude" readonly>
+                    <div class="grid-container">
+                        <label>Images (Optional)</label>
+                        <label>Preview</label>
+                    </div>
+                    <div class="grid-container">
+                        <input id="browse" type="file" onchange="previewFiles()" multiple>
+                        <div id="preview">
+                                <img src="/images/pens.jpg">
+                                <img src="/images/pens.jpg">
+                                <img src="/images/pens.jpg">
+                        </div>
+                    </div>
+                    <div class="grid-container">
+                        <label></label>
+                        <button onclick="createRedFlag()" id="buttonSignin">Submit</button>
+                    </div>
                 </div>
-            </div>
-            <div class="grid-container">
-                <label></label>
-                <button onclick="createRedFlag()" id="buttonSignin">Submit</button>
-            </div>
-        </div>
+
         <p id="errors"></p>
     </div>
     <script type="text/javascript" src="/iReporter/js/uploadimages.js"></script>

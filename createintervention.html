@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="/iReporter/css/createredflag.css">
-        <title>Intervention Call| iReporter </title>
+        <title>Create Intervention | iReporter </title>
 </head>
 
 <body>
@@ -19,34 +19,30 @@
         </div>
         <div class="container">
                 <div id="signup">
-                        <h1>Submit An Intervention Record Here:</h1>
+                        <h1>Create An Intervention Record Here:</h1>
                         <label>A call for a government agency to intervene e.g repair bad road sections, collapsed
-                                bridges, flooding e.t.c
-                        </label><br>
-                        <div class="grid-container">
+                                bridges,
+                                flooding e.t.c</label><br>
+                        <div class="flex-container">
                                 <label>Title:</label>
-                                <label>Location:</label>
-                        </div>
-                        <div class="grid-container">
                                 <input type="text" id="txtusername">
+
+                        </div>
+                        <div class="flex-container">
+                                <label>Location:</label>
                                 <select id="location"></select>
                         </div>
-                        <hr>
-                        <div class="grid-container">
-                                <label>Description:</label>
+                        <div class="flex-container">
                                 <label></label>
-                        </div>
-                        <div class="grid-container">
-                                <textarea id="desc"></textarea>
                                 <div id="mapHolder"></div>
                         </div>
+                        <div class="flex-container">
+                                <label>Description:</label>
+                                <textarea id="desc"></textarea>
+                        </div>
                         <hr>
-                        <div class="flex-container">
-                                <input type="text" id="txtlatitude" readonly>
-                        </div>
-                        <div class="flex-container">
-                                <input type="text" id="txtlongitude" readonly>
-                        </div>
+                        <input type="text" id="txtlatitude" readonly>
+                        <input type="text" id="txtlongitude" readonly>
                         <div class="grid-container">
                                 <label>Images (Optional)</label>
                                 <label>Preview</label>
@@ -57,7 +53,7 @@
                         </div>
                         <div class="grid-container">
                                 <label></label>
-                                <button onclick="createIntervention()" id="buttonSignin">Submit</button>
+                                <button onclick="createRedFlag()" id="buttonSignin">Submit</button>
                         </div>
                 </div>
                 <p id="errors"></p>

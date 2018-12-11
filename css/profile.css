@@ -7,7 +7,7 @@
     --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
-body {
+body { 
     margin: 0;
     font-family: 'Helvetica', 'Arial';
 }
@@ -60,7 +60,44 @@ img {
 .navlinks li a:hover {
     background-color: #111;
 }
+.flex-profile {
+    display: flex;
+    flex-direction: row;
+  }
+  /*signup*/
+#signup {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 16px;
+    flex: 2;
+}
 
+#signup label {
+    font-size: 20px;
+    display: block;
+}
+
+.profile {
+    margin: 30px;
+    flex: 1;
+  }
+
+.profile img {
+    height: 200px;
+    border-radius: 50%;
+  }
+  .profile p {
+    text-align: center;
+    font-weight: bold;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
 /*Top Container*/
 .top-container {
     display: grid;
@@ -74,7 +111,7 @@ img {
 .showcase {
     grid-area: showcase;
     min-height: 400px;
-    background: url(/public/images/mark.jpeg);
+    background: url(/iReporter/images/mark.jpeg);
     background-size: cover;
     background-position: center;
     padding: 10rem;
@@ -120,19 +157,6 @@ footer {
     padding-bottom: 20px;
 }
 
-/*signup*/
-#signup {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-size: 16px;
-}
-
-#signup label {
-    font-size: 20px;
-    display: block;
-}
 
 #errors {
     font-size: 20px;
@@ -157,13 +181,15 @@ button:hover {
 }
 
 .grid-container {
+    margin-top: 60px;
+    margin-left: 30px;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 5fr 5fr 1fr;
 }
 
 .profiledetails {
-    background: var(--primary);
+    background: #fff;
     font-size: 1.2rem;
     text-align: left;
     padding: 1.5rem;
@@ -201,10 +227,16 @@ button:hover {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.box {
+.box-head {
     background: var(--primary);
-    font-size: 1.3rem;
+    height: 100px;
+}
+.box-body {
     padding: 1.5rem 2rem;
+}
+.box {
+    background: #fff;
+    font-size: 1.3rem; 
     box-shadow: var(--shadow);
 }
 
@@ -214,8 +246,15 @@ h1 {
 
 .box h3 {
     text-align: center;
+    margin: 0px;
+    padding: 30px;
 }
-
+.box p{
+    text-align: center;
+}
+.box a {
+margin-left: 70px;
+}
 .status {
     text-align: center;
 }
@@ -230,6 +269,7 @@ h1 {
     padding: 0.6rem 1.3rem;
     text-decoration: none;
     border: 0;
+    border-radius: 10px;
 }
 
 .btn_link:hover {
@@ -237,12 +277,17 @@ h1 {
     color: #fff;
 }
 
-.box a {
-    justify-self: center;
-    width: 100%;
-}
 
 @media (max-width: 700px) {
+    .flex-profile {
+        display: flex;
+        flex-direction: column;
+      }
+      .grid-container {
+        margin: 10px;
+        grid-gap: 20px;
+        grid-template-columns:1fr;
+    }
     .showcase {
         min-height: 300px;
     }

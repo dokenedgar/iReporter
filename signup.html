@@ -12,9 +12,11 @@
 <body>
         <div class="navlinks">
                 <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Red-Flags</a></li>
-                        <li><a href="#">Interventions</a></li>
+                        <li class="left"><a href="index.html">Home</a></li>
+                        <li class="left"><a href="#">Red-Flags</a></li>
+                        <li class="left"><a href="#">Interventions</a></li>
+                        <li class="right"><a href="signin.html">Sign-In</a></li>
+                        <li class="right active"><a href="signup.html">Sign-Up</a></li>
                 </ul>
         </div>
         <div class="container">
@@ -22,26 +24,34 @@
                         <h1>Sign Up To iReporter Here</h1>
                         <div class="grid-container">
                                 <label>First Name:</label>
-                                <label>Surname:</label>
-                        </div>
-                        <div class="grid-container">
                                 <input type="text" id="txtFname">
+                        </div>
+                        <div class="grid-container">     
+                                <label>Surname:</label>
                                 <input type="text" id="txtSname">
                         </div>
+
+                        <div class="grid-container">     
+                                <label>Other Names:</label>
+                                <input type="text" id="txtOname">
+                        </div>
+
                         <div class="grid-container">
                                 <label>Phone:</label>
-                                <label>Email:</label>
+                                <input type="number" id="txtPhoneNum">
+                                
                         </div>
                         <div class="grid-container">
-                                <input type="number" id="txtPhoneNum">
+                                <label>Email:</label>
                                 <input type="text" id="txtEmail">
                         </div>
                         <div class="grid-container">
                                 <label>Username:</label>
-                                <label>Password:</label>
+                                <input type="text" id="txtUsername">
+                                
                         </div>
                         <div class="grid-container">
-                                <input type="text" id="txtUsername">
+                                <label>Password:</label>
                                 <input type="password" id="txtPassword" required>
                         </div>
                         <br>
