@@ -21,7 +21,10 @@ class UserClass {
       username: data.username,
       password: data.password,
       registered: new Date().toDateString(),
-      isAdmin: 'false'
+      isAdmin: false
+    }
+    if (data.secretKey ) { // = process.env.someSecrets
+        newUser.isAdmin = true;
     }
 
     users.push(newUser);

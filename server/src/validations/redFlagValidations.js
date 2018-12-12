@@ -1,18 +1,7 @@
 class redFlagVal {
 
     create(req, res, next) {
-/*
-        req.check('userid').isLength({
-                min: 6
-            })
-            .withMessage('Please provide a userid with at atleast 6 characters')
-            .isLength({
-                max: 10
-            })
-            .withMessage('Please provide a userid with at most 10 characters')
-            .isNumeric()
-            .withMessage('You entered a non-integer in the userid field');
-*/
+
         req.check('latitude').isLength({
                 min: 2
             })

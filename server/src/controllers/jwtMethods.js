@@ -23,8 +23,10 @@ const jwtObject = {
               res.status(403).json({ response });
             }   
             else {
-               //console.log(authData.user.id);
+              //  console.log(authData.user);
+             //  console.log(authData.user.isAdmin);
               req.body.userId = authData.user.id;
+              req.body.userType = authData.user.isAdmin;
                 next();
               }
             });
