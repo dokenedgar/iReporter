@@ -8,7 +8,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "rm -rf build && babel ./ -d build --ignore node_modules",
     "start": "npm run build && npm run dbscripts",
-    "dbscripts": "node build/pgdb/droptables.js && node build/pgdb/createtables.js",
+    "dbscripts": "node build/pgdb/droptables.js && node build/pgdb/createTables.js",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
