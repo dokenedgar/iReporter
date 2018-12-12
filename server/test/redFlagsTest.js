@@ -28,9 +28,24 @@ describe('iReporter Test Suites', () => {
                 expect(res).to.have.status(201);
                 expect(res.body).to.be.an('object')
                 expect(res.body.data).to.be.an('array');
+                
+            });
+        });
+        
+        it('user authentication - user found', () => {
+            return chai.request(app)
+            .post('/api/v1/auth/login')
+            .send({
+                username: 'tokyo',
+                password: 'atoms'
+              })
+            .then((res) => {
+                expect(res).to.have.status(200);
+                expect(res.body).to.be.an('object');
                 jwtToken = res.body.token;
             });
         });
+
     
         it('create a red-flag record', () => {
             return chai.request(app)

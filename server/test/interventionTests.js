@@ -1,6 +1,4 @@
-import {
-    expect
-} from 'chai';
+import { expect } from 'chai';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../../index.js';
@@ -28,8 +26,24 @@ describe('Intervention Tests', () => {
                     expect(res.body).to.be.an('object')
                     expect(res.body.data).to.be.an('array');
                     expect(res.body.data[0].firstname).to.equal('David');
-                    jwtToken = res.body.token;
+                    
                 });
+        });
+
+        it('user authentication - user found', () => {
+            return chai.request(app)
+            .post('/api/v1/auth/login')
+            .send({
+                username: 'mission',
+                password: 'impossible'
+              })
+            .then((res) => {
+                expect(res).to.have.status(200);
+                expect(res.body).to.be.an('object');
+                console.log(res.body.token);
+                jwtToken = res.body.token;
+                console.log(jwtToken);
+            });
         });
 
         it('create intervention - with good parameters', () => {
