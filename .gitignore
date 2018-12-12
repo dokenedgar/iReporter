@@ -4,6 +4,7 @@
 /build
 /src
 /test
+.env
 
 #"build": "rm -rf build && babel ./ -d build --ignore node_modules",
 #-g mocha babel-preset-env chai chai-http babel-cli nyc coveralls
@@ -16,4 +17,14 @@
 #        return res.status(400).json({ err: req.validationErrors() });
 #    }
 # });
- 
+
+# *****FROM .env****************
+# PGHOST= localhost
+#PGDATABASE=ireporter
+#PGPASSWORD=d0k3nedgar
+#PGUSER=postgres
+#PGPORT=5432
+
+#postgres://{db_username}:{db_password}@{host}:{port}/{db_name}
+# e.g postgres://olawalequest@127.0.0.1:5432/reflection_db.
+# *****FROM .env****************
