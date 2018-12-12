@@ -21,7 +21,10 @@ class UserClass {
       username: data.username,
       password: data.password,
       registered: new Date().toDateString(),
-      isAdmin: 'false'
+      isAdmin: false
+    }
+    if (data.secretKey ) { // = process.env.someSecrets
+        newUser.isAdmin = true;
     }
 
     users.push(newUser);
@@ -41,9 +44,10 @@ class UserClass {
 
   checkID(userid) {
     let userFound = false;
-    //console.log(users);
+    
     users.forEach((element) => {
-      if ((Number(element.id) === userid)) {
+      
+      if (element.id === userid) {
         userFound = true;
         return userFound;
       }

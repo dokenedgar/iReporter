@@ -17,7 +17,7 @@ class RedFlagClass {
     const newRedFlag = {
       id: arr.join(''),
       createdOn: new Date().toDateString(),
-      createdBy: data.userid,
+      createdBy: data.userId,
       type: 'red-flag',
       location: `${data.latitude}, ${data.longitude}`,
       status: 'Draft',
@@ -25,7 +25,7 @@ class RedFlagClass {
       comment: data.comment
     }
 
-    let checkid = newUserObject.checkID(data.userid);
+    let checkid = newUserObject.checkID(data.userId);
     if(checkid){
         redFlags.push(newRedFlag);
         // console.log(users);

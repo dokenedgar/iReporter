@@ -1,14 +1,18 @@
 import { newUserObject } from '../models/userModel';
-// import jwt from 'jsonwebtoken';
+import jwtObject from './jwtMethods';
 
 const User = {
   create(req, res) {
     const user = newUserObject.create(req.body);
-    const response = {
-      status: 201,
-      data: [user]
-    };
-    return res.status(201).send(response);
+    jwtObject.createToken(user, function(token){
+      const response = {
+        status: 201,
+        token,
+        data: [user]
+      };
+      return res.status(201).send(response);
+    });
+
   },
 
   getUser(req, res) {
@@ -20,11 +24,14 @@ const User = {
       };
       return res.status(400).send(response);
     } else {
-      const response = {
-        status: 200,
-        data: [result]
-      };
-      return res.status(200).send(response);
+      jwtObject.createToken(result, function(token){
+        const response = {
+          status: 200,
+          token,
+          data: [result]
+        };
+        return res.status(200).send(response);
+      });
     }
   },
 

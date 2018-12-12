@@ -1,18 +1,6 @@
 class interventionVal {
 
     create(req, res, next) {
-
-        req.check('userid').isLength({
-                min: 6
-            })
-            .withMessage('Please provide a userid with at atleast 6 characters')
-            .isLength({
-                max: 10
-            })
-            .withMessage('Please provide a userid with at most 10 characters')
-            .isNumeric()
-            .withMessage('You entered a non-integer in the userid field');
-
         req.check('latitude').isLength({
                 min: 2
             })
@@ -84,16 +72,6 @@ class interventionVal {
             .withMessage('Please provide an intervention id with at most 10 characters')
             .isNumeric()
             .withMessage('You provided a non-integer in the intervention id field');
-        req.check('userid').isLength({
-                min: 6
-            })
-            .withMessage('Please provide a userid with at atleast 6 characters')
-            .isLength({
-                max: 10
-            })
-            .withMessage('Please provide a userid with at most 10 characters')
-            .isNumeric()
-            .withMessage('You entered a non-integer in the userid field');
 
         req.check('latitude').isLength({
                 min: 2
@@ -137,16 +115,7 @@ class interventionVal {
             .withMessage('Please provide an intervention id with at most 10 characters')
             .isNumeric()
             .withMessage('You provided a non-integer in the intervention id field');
-        req.check('userid').isLength({
-                min: 6
-            })
-            .withMessage('Please provide a userid with at atleast 6 characters')
-            .isLength({
-                max: 10
-            })
-            .withMessage('Please provide a userid with at most 10 characters')
-            .isNumeric()
-            .withMessage('You entered a non-integer in the userid field');
+
         req.check('comment').isLength({
                 min: 2
             })
@@ -177,16 +146,6 @@ class interventionVal {
             .withMessage('Please provide an intervention id with at most 10 characters')
             .isNumeric()
             .withMessage('You provided a non-integer in the intervention id field');
-        req.check('userid').isLength({
-                min: 6
-            })
-            .withMessage('Please provide a userid with at atleast 6 characters')
-            .isLength({
-                max: 10
-            })
-            .withMessage('Please provide a userid with at most 10 characters')
-            .isNumeric()
-            .withMessage('You entered a non-integer in the userid field');
 
         if (req.validationErrors()) {
             return res.status(400).json({

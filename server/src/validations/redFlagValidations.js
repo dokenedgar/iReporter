@@ -2,17 +2,6 @@ class redFlagVal {
 
     create(req, res, next) {
 
-        req.check('userid').isLength({
-                min: 6
-            })
-            .withMessage('Please provide a userid with at atleast 6 characters')
-            .isLength({
-                max: 10
-            })
-            .withMessage('Please provide a userid with at most 10 characters')
-            .isNumeric()
-            .withMessage('You entered a non-integer in the userid field');
-
         req.check('latitude').isLength({
                 min: 2
             })
@@ -84,18 +73,8 @@ class redFlagVal {
             .withMessage('Please provide a red-flag id with at most 10 characters')
             .isNumeric()
             .withMessage('You provided a non-integer in the red-flag id field');
-        req.check('userid').isLength({
-                min: 6
-            })
-            .withMessage('Please provide a userid with at atleast 6 characters')
-            .isLength({
-                max: 10
-            })
-            .withMessage('Please provide a userid with at most 10 characters')
-            .isNumeric()
-            .withMessage('You entered a non-integer in the userid field');
 
-        req.check('latitude').isLength({
+            req.check('latitude').isLength({
                 min: 2
             })
             .withMessage('Please enter a latitude with minimum of 2 characters')
@@ -137,16 +116,7 @@ class redFlagVal {
             .withMessage('Please provide a red-flag id with at most 10 characters')
             .isNumeric()
             .withMessage('You provided a non-integer in the red-flag id field');
-        req.check('userid').isLength({
-                min: 6
-            })
-            .withMessage('Please provide a userid with at atleast 6 characters')
-            .isLength({
-                max: 10
-            })
-            .withMessage('Please provide a userid with at most 10 characters')
-            .isNumeric()
-            .withMessage('You entered a non-integer in the userid field');
+
         req.check('comment').isLength({
                 min: 2
             })
@@ -177,17 +147,7 @@ class redFlagVal {
             .withMessage('Please provide a red-flag id with at most 10 characters')
             .isNumeric()
             .withMessage('You provided a non-integer in the red-flag id field');
-        req.check('userid').isLength({
-                min: 6
-            })
-            .withMessage('Please provide a userid with at atleast 6 characters')
-            .isLength({
-                max: 10
-            })
-            .withMessage('Please provide a userid with at most 10 characters')
-            .isNumeric()
-            .withMessage('You entered a non-integer in the userid field');
-
+ 
         if (req.validationErrors()) {
             return res.status(400).json({
                 status: 400,

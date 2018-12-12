@@ -15,7 +15,7 @@ class InterventionClass {
     const newIntervention = {
       id: arr.join(''),
       createdOn: new Date().toDateString(),
-      createdBy: data.userid,
+      createdBy: data.userId,
       type: 'Intervention',
       location: `${data.latitude}, ${data.longitude}`,
       status: 'Draft',
@@ -23,7 +23,7 @@ class InterventionClass {
       comment: data.comment
     }
 
-    let checkid = newUserObject.checkID(data.userid);
+    let checkid = newUserObject.checkID(data.userId);
     if(checkid){
       interventions.push(newIntervention);
       let {id} = newIntervention;
