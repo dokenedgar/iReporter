@@ -1,8 +1,4 @@
-import {
-  users,
-  newRedFlagObject
-} from '../models/redflagModel';
-// import jwt from 'jsonwebtoken';
+import { users, newRedFlagObject } from '../models/redflagModel';
 
 const RedFlag = {
   create(req, res) {
@@ -33,26 +29,42 @@ const RedFlag = {
     req.body.latitude = Math.round(req.body.latitude * 1e16) / 1e16;
     req.body.longitude = Math.round(req.body.longitude * 1e16) / 1e16;
 
-    const redflag = newRedFlagObject.create(req.body);
-
-    if (redflag === false) {
-      return res.status(400).send({
-        status: 400,
-        error: 'No user found with the supplied user-id, please check the id and try again.'
-      });
-    }
-
-    const response = {
-      status: 201,
-      data: [redflag]
-    };
-    return res.status(201).send(response);
+    newRedFlagObject.create(req.body, (result) => {
+      if (result === false) {
+        return res.status(400).send({
+          status: 400,
+          error: 'No user found with the supplied user-id, please check the id and try again.'
+        });
+      }
+  
+      const response = {
+        status: 201,
+        data: [result]
+      };
+      return res.status(201).send(response);
+    });
   },
-  // other methods here
 
   getAllRedFlags(req, res) {
-    const redFlags = newRedFlagObject.getAllRedFlagsRecord();
-   //console.log('FromredF: ', req.authData);
+    newRedFlagObject.getAllRedFlagsRecord((err, result) => {
+      if (result === undefined) {
+        return res.status(400).send({ message: 'Error processing request. Check order id' });
+      } else {
+            if (result.rowCount === 0) {
+              const response = {
+                status: 200,
+                error: 'No red-flags received yet'
+              };
+              return res.status(400).send(response);
+          }
+          const response = {
+            status: 200,
+            data: [result.rows]
+          };
+          return res.status(200).send(response);
+      }               
+   });
+/*
     if (redFlags.length === 0) {
       return res.status(200).send({
         status: 200,
@@ -66,29 +78,31 @@ const RedFlag = {
       data: redFlags
     };
     return res.status(200).send(response);
+    */
   },
 
   fetchSpecificRedFlag(req, res) {
-
-    const result = newRedFlagObject.getSpecificRedFlag(req.params.id);
-    if (result === false) {
-      const response = {
-        status: 400,
-        error: 'No red-flag record found with the supplied id'
-      };
-      return res.status(400).send(response);
-    } else {
-      const response = {
-        status: 200,
-        data: [result]
-      };
-      return res.status(200).send(response);
-    }
-
+     newRedFlagObject.getSpecificRedFlag(req.params.id, (err, result) => {
+      if (result === undefined) {
+        return res.status(400).send({ message: 'Error processing request. Check order id' });
+      } else {
+            if (result.rowCount === 0) {
+              const response = {
+                status: 400,
+                error: 'No red-flag record found with the supplied id'
+              };
+              return res.status(400).send(response);
+          }
+          const response = {
+            status: 200,
+            data: [result.rows[0]]
+          };
+          return res.status(200).send(response);
+      }               
+   });
   },
 
   editLocationRedFlag(req, res) {
-
     if ((req.body.latitude > 90) || (req.body.latitude < -90)) {
       return res.status(400).send({
         status: 400,
@@ -110,28 +124,31 @@ const RedFlag = {
     req.body.latitude = Math.round(req.body.latitude * 1e16) / 1e16;
     req.body.longitude = Math.round(req.body.longitude * 1e16) / 1e16;
 
-    const result = newRedFlagObject.editRedFlagLocation(req.params.id, req.body.userId, req.body.latitude, req.body.longitude);
-
-    if (result === false) {
+    newRedFlagObject.editRedFlagLocation(req.params.id, req.body.userId, req.body.latitude, req.body.longitude, (err, result)=>{
+      if (result===undefined) {
+        const response = {
+          status: 403,
+          error: 'You do not have permission to edit this record'
+        };
+        return res.status(403).send(response);
+      }
+    if (result.rowCount === 0) {
       const response = {
         status: 400,
-        error: 'No red-flag record found with the supplied id'
+        error: 'Check whether red-flag exists, and if it were created by this user'
       };
       return res.status(400).send(response);
-    } else if (result === true) {
-      const response = {
-        status: 400,
-        error: 'Sorry, you do not have permission to edit this record.'
-      };
-      return res.status(400).send(response);
-    } else {
-      const response = {
-        status: 200,
-        data: [result]
-      };
-      return res.status(200).send(response);
     }
-
+   let onSuccess = {
+      id: req.params.id,
+      message: "Updated red-flag record’s location"
+  };
+    const response = {
+      status: 200,
+      data: [onSuccess]
+    };
+    return res.status(200).send(response);
+    });
   },
 
   editCommentRedFlag(req, res) {
@@ -141,56 +158,60 @@ const RedFlag = {
         error: 'Please enter a string as the comment for your intervention record'
       });
     }
-    const result = newRedFlagObject.editRedFlagComment(req.params.id, req.body.userId, req.body.comment);
-
-    if (result === false) {
+    newRedFlagObject.editRedFlagComment(req.params.id, req.body.userId, req.body.comment, (err, result) =>{
+      if (result===undefined) {
+        const response = {
+          status: 403,
+          error: 'You do not have permission to edit this record'
+        };
+        return res.status(403).send(response);
+      }
+    if (result.rowCount === 0) {
       const response = {
         status: 400,
-        error: 'No red-flag record found with the supplied id'
+        error: 'Check whether red-flag exists, and if it were created by this user'
       };
       return res.status(400).send(response);
-    } else if (result === true) {
-      const response = {
-        status: 400,
-        error: 'Sorry, you do not have permission to edit this record.'
-      };
-      return res.status(400).send(response);
-    } else {
-      const response = {
-        status: 200,
-        data: [result]
-      };
-      return res.status(200).send(response);
     }
-
+   let onSuccess = {
+      id: req.params.id,
+      message: "Updated red-flag record’s comment"
+  };
+    const response = {
+      status: 200,
+      data: [onSuccess]
+    };
+    return res.status(200).send(response);
+    });
   },
 
   deleteRedFlag(req, res) {
-
-    const result = newRedFlagObject.deleteRedFlag(req.params.id, req.body.userId);
-
-    if (result === false) {
+    newRedFlagObject.deleteRedFlag(req.params.id, req.body.userId, (err, result) => {
+      if (result===undefined) {
+        const response = {
+          status: 403,
+          error: 'You do not have permission to edit this record'
+        };
+        return res.status(403).send(response);
+      }
+    if (result.rowCount === 0) {
       const response = {
         status: 400,
-        error: 'No red-flag record found with the supplied id'
+        error: 'Check whether red-flag exists, and if it were created by this user'
       };
       return res.status(400).send(response);
-    } else if (result === true) {
-      const response = {
-        status: 400,
-        error: 'Sorry, you do not have permission to delete this record.'
-      };
-      return res.status(400).send(response);
-    } else {
-      const response = {
-        status: 200,
-        data: [result]
-      };
-      return res.status(200).send(response);
     }
-
+   let onSuccess = {
+      id: req.params.id,
+      message: "red-flag record has been deleted"
+  };
+    const response = {
+      status: 200,
+      data: [onSuccess]
+    };
+    return res.status(200).send(response);
+    });
   },
-
 
 }
 export default RedFlag;

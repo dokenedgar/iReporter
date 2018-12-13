@@ -28,14 +28,30 @@ describe('iReporter Test Suites', () => {
                 expect(res).to.have.status(201);
                 expect(res.body).to.be.an('object')
                 expect(res.body.data).to.be.an('array');
-                jwtToken = res.body.token;
+                
             });
         });
+        
+        it('user authentication - user found', () => {
+            return chai.request(app)
+            .post('/api/v1/auth/login')
+            .send({
+                username: 'tokyo',
+                password: 'atoms'
+              })
+            .then((res) => {
+                expect(res).to.have.status(200);
+                expect(res.body).to.be.an('object');
+                //console.log(res.body);
+                jwtToken = res.body.data[0].token;
+            });
+        });
+
     
         it('create a red-flag record', () => {
             return chai.request(app)
             .post('/api/v1/red-flags')
-            .set('authorization', `Bearer ${jwtToken}`)
+            .set('authorization', `${jwtToken}`)
             .send({
                 
                 "latitude": -40.434534653473453453234234234,
@@ -53,7 +69,7 @@ describe('iReporter Test Suites', () => {
         it('create red flag - invalid latitude', () => {
             return chai.request(app)
                 .post('/api/v1/red-flags')
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
                     "latitude": '-40.434534653473453453234234234',
                     "longitude": -179.12345678765432190876,
@@ -68,7 +84,7 @@ describe('iReporter Test Suites', () => {
         it('create red flag - invalid longitude', () => {
             return chai.request(app)
                 .post('/api/v1/red-flags')
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
 
@@ -85,7 +101,7 @@ describe('iReporter Test Suites', () => {
         it('create red flag - invalid comment', () => {
             return chai.request(app)
                 .post('/api/v1/red-flags')
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
 
@@ -103,7 +119,7 @@ describe('iReporter Test Suites', () => {
         it('Get All Red-Flags', () => {
             return chai.request(app)
             .get('/api/v1/red-flags')
-            .set('authorization', `Bearer ${jwtToken}`)
+            .set('authorization', `${jwtToken}`)
             .then((res) => {
                 expect(res).to.have.status(200);
             });
@@ -112,7 +128,7 @@ describe('iReporter Test Suites', () => {
         it('Get A Specific Red-Flag', () => {
             return chai.request(app)
             .get(`/api/v1/red-flags/${redFlagId}`)
-            .set('authorization', `Bearer ${jwtToken}`)
+            .set('authorization', `${jwtToken}`)
             .then((res) => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.be.an('object');
@@ -122,7 +138,7 @@ describe('iReporter Test Suites', () => {
         it('Edit A Red-Flag location', () => {
             return chai.request(app)
             .patch(`/api/v1/red-flags/${redFlagId}/location`)
-            .set('authorization', `Bearer ${jwtToken}`)
+            .set('authorization', `${jwtToken}`)
             .send({
                 "latitude": 23.434534653473453453234234234,
                 "longitude": 80.12345678765432190876
@@ -135,7 +151,7 @@ describe('iReporter Test Suites', () => {
         it('invalid latitude', () => {
             return chai.request(app)
             .patch(`/api/v1/red-flags/${redFlagId}/location`)
-                .set('authorization', `Bearer ${jwtToken}`)
+            .set('authorization', `${jwtToken}`)
                 .send({
 
                     "latitude": '23.73453453234234234',
@@ -149,7 +165,7 @@ describe('iReporter Test Suites', () => {
         it('invalid longitude', () => {
             return chai.request(app)
             .patch(`/api/v1/red-flags/${redFlagId}/location`)
-                .set('authorization', `Bearer ${jwtToken}`)
+            .set('authorization', `${jwtToken}`)
                 .send({
 
                     "latitude": 23.73453453234234234,
@@ -165,7 +181,7 @@ describe('iReporter Test Suites', () => {
         it('Edit A Red-Flag Comment', () => {
             return chai.request(app)
             .patch(`/api/v1/red-flags/${redFlagId}/comment`)
-            .set('authorization', `Bearer ${jwtToken}`)
+            .set('authorization', `${jwtToken}`)
             .send({
                 "comment": "Something new.."
             })
@@ -177,7 +193,7 @@ describe('iReporter Test Suites', () => {
         it('invalid comment', () => {
             return chai.request(app)
             .patch(`/api/v1/red-flags/${redFlagId}/comment`)
-                .set('authorization', `Bearer ${jwtToken}`)
+            .set('authorization', `${jwtToken}`)
                 .send({
 
                     "comment": 12431431343
@@ -191,7 +207,7 @@ describe('iReporter Test Suites', () => {
         it('Delete A Red-Flag', () => {
             return chai.request(app)
             .del('/api/v1/red-flags/12345678')
-            .set('authorization', `Bearer ${jwtToken}`)
+            .set('authorization', `${jwtToken}`)
             .then((res) => {
                 expect(res).to.have.status(400);
                 expect(res.body).to.be.an('object');

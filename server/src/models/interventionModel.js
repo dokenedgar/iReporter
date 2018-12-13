@@ -1,10 +1,11 @@
+import db from '../../../pgdb/dbconfig'
 import {  newUserObject } from '../models/userModel';
 export const interventions = [];
 
 class InterventionClass {
 
   // eslint-disable-next-line class-methods-use-this
-  create(data) {
+  create(data, callback) {
 
     let arr = []
     while(arr.length < 8){
@@ -23,24 +24,35 @@ class InterventionClass {
       comment: data.comment
     }
 
-    let checkid = newUserObject.checkID(data.userId);
-    if(checkid){
+    //let checkid = newUserObject.checkID(data.userId);
+    //if(checkid){
       interventions.push(newIntervention);
       let {id} = newIntervention;
       let response = {
           id,
           message: "Created Intervention record"
       };
-      //return newRedFlag;
-      return response;
-    }
-    else{
-      return false;
-    }
-
+              //Insert into db here
+              db.query('INSERT INTO interventions (id, createdon, createdby, type, location, status, comment) values($1, $2, $3, $4, $5, $6, $7)',
+              [newIntervention.id, newIntervention.createdOn, newIntervention.createdBy, newIntervention.type, newIntervention.location, newIntervention.status, newIntervention.comment ], (err)=>{
+                if (err) {
+                  console.log(err);
+                  response = false;
+                }
+                callback(response);
+              });
   }
 
-  getSpecificIntervention(id) {
+  getSpecificIntervention(id, callback) {
+    db.query('SELECT * FROM interventions where id=($1)',
+    [id], (err, res)=>{
+      if (err) {
+        console.log(err);
+      }
+      callback(err, res)
+    });
+    //return redFlagFound;
+    /*
     let interventionFound = false;
     interventions.forEach((element) =>{
       if((element.id === id)){
@@ -49,15 +61,32 @@ class InterventionClass {
       }
     });
     return interventionFound;
+    */
   }
 
   
- getAllinterventionRecords() {
-     return interventions;
+ getAllinterventionRecords(callback) {
+  db.query('SELECT * FROM interventions',
+  [], (err, res)=>{
+    if (err) {
+      console.log(err);
+    }
+    callback(err, res)
+  });
+
  }
 
 
- editInterventionLocation(id, userid, latitude, longitude){
+ editInterventionLocation(id, userid, latitude, longitude, callback){
+  db.query('UPDATE interventions SET location=($1) WHERE id=($2) AND createdby=($3)',
+  [`${latitude}, ${longitude}`, id, userid],
+  (err, res)=>{
+    if (err) {
+      console.log(err);
+    }
+    callback(err, res)
+  });
+/*
     let recordFound = false;
     interventions.forEach((element) =>{
       if((element.id === id)&& (element.createdBy === userid)){
@@ -73,10 +102,19 @@ class InterventionClass {
         return recordFound;
       }
     });
-    return recordFound;
+    return recordFound; */
  }
 
-editInterventionComment(id, userid, comment){
+editInterventionComment(id, userid, comment, callback){
+  db.query('UPDATE interventions SET comment=($1) WHERE id=($2) AND createdby=($3)',
+  [comment, id, userid],
+  (err, res)=>{
+    if (err) {
+      console.log(err);
+    }
+    callback(err, res)
+  });
+/*
     let recordFound = false;
     interventions.forEach((element) =>{
       if((element.id === id)&& (element.createdBy === userid)){
@@ -93,10 +131,19 @@ editInterventionComment(id, userid, comment){
       }
     });
     return recordFound;
+    */
  }
 
 
- deleteIntervention(id, userid){
+ deleteIntervention(id, userid, callback){
+  db.query('DELETE FROM interventions WHERE id=($1) AND createdby=($2)',
+  [id, userid], (err, res)=>{
+    if (err) {
+      console.log(err);
+    }
+    callback(err, res)
+  });
+  /*
     let recordFound = false;
     interventions.forEach((element, index) =>{
       if((element.id === id)&& (element.createdBy === userid)){
@@ -113,6 +160,7 @@ editInterventionComment(id, userid, comment){
       }
     });
     return recordFound;
+    */
  }
 
 }

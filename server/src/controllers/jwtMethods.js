@@ -9,10 +9,10 @@ const jwtObject = {
     },
 
     verifyToken (req, res, next) {
-        const bearerHeader = req.headers['authorization'];
-        if (typeof bearerHeader !== 'undefined') {
-          const bearer = bearerHeader.split(' ');
-          const bearerToken = bearer[1];
+        const bearerToken = req.headers['authorization'];
+        if (typeof bearerToken !== 'undefined') {
+          //const bearer = bearerHeader.split(' ');
+          //const bearerToken = bearer[1];
           req.token = bearerToken;
           jwt.verify(req.token, 'app-key-here', (err, authData) => {
             if (err) {
@@ -23,10 +23,11 @@ const jwtObject = {
               res.status(403).json({ response });
             }   
             else {
-              //  console.log(authData.user);
+             // console.log(authData.user);
              //  console.log(authData.user.isAdmin);
-              req.body.userId = authData.user.id;
-              req.body.userType = authData.user.isAdmin;
+              req.body.userId = authData.user.userid;
+             // req.body.userType = authData.user.isAdmin;
+
                 next();
               }
             });
