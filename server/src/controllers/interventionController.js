@@ -31,34 +31,53 @@ const Intervention = {
     req.body.latitude = Math.round( req.body.latitude * 1e16 ) / 1e16;
     req.body.longitude = Math.round( req.body.longitude * 1e16 ) / 1e16;
     
-    const intervention = newInterventionObject.create(req.body);
-    if(intervention === false){
-      return res.status(400).send({ status: 400, error: 'No user found with the supplied user-id, please check the id and try again.' });
-    }
-
-    const response = { status: 201, data: [intervention] };
-    return res.status(201).send(response);
+    newInterventionObject.create(req.body, (result) => {
+      if (result === false) {
+        return res.status(400).send({
+          status: 400,
+          error: 'No user found with the supplied user-id, please check the id and try again.'
+        });
+      }
+  
+      const response = {
+        status: 201,
+        data: [result]
+      };
+      return res.status(201).send(response);
+    });
   },
   // other methods here
 
   getAllInterventions(req, res){
-    const intervention = newInterventionObject.getAllinterventionRecords();
-    if(intervention.length === 0){
-      return res.status(200).send({ status: 200, data: [{message: 'No intervention records received yet'}] });
-    }
-    const response = { status: 200, data: intervention };
-    return res.status(200).send(response);
+    const intervention = newInterventionObject.getAllinterventionRecords((err, result) => {
+      if (result === undefined) {
+        return res.status(400).send({ message: 'Error processing request. Check order id' });
+      } else {
+            if (result.rowCount === 0) {
+              const response = {
+                status: 200,
+                error: 'No red-intervention record received yet'
+              };
+              return res.status(400).send(response);
+          }
+          const response = {
+            status: 200,
+            data: [result.rows]
+          };
+          return res.status(200).send(response);
+      }  
+});
 },
 
   fetchSpecificIntervention(req, res) {
-    newInterventionObject.getSpecificIntervention(req.params.id, (err, result) => {
+    newInterventionObject.getSpecificIntervention (req.params.id, (err, result) => {
       if (result === undefined) {
         return res.status(400).send({ message: 'Error processing request. Check order id' });
       } else {
             if (result.rowCount === 0) {
               const response = {
                 status: 400,
-                error: 'No intervention record found with the supplied id'
+                error: 'No red-flag record found with the supplied id'
               };
               return res.status(400).send(response);
           }

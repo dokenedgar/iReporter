@@ -3,7 +3,7 @@ import db from './dbconfig';
 //db.query('DROP TABLE IF EXISTS reflections')
 
 const queryText =
-    `DROP TABLE IF EXISTS users`;
+    `DROP TABLE IF EXISTS users CASCADE`;
 
 db.query(queryText, (error)=>{
 	if (error) {
@@ -12,7 +12,7 @@ db.query(queryText, (error)=>{
 });
 
 const queryRedFlags =
-    `DROP TABLE IF EXISTS redflags`;
+    `DROP TABLE IF EXISTS redflags CASCADE`;
 
 db.query(queryRedFlags, (error)=>{
 	if (error) {
@@ -21,7 +21,7 @@ db.query(queryRedFlags, (error)=>{
 });
 
 const queryInterventions =
-    `DROP TABLE IF EXISTS interventions`;
+    `DROP TABLE IF EXISTS interventions CASCADE`;
 
 db.query(queryInterventions, (error)=>{
 	if (error) {

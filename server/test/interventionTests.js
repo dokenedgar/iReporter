@@ -25,7 +25,7 @@ describe('Intervention Tests', () => {
                     expect(res).to.have.status(201);
                     expect(res.body).to.be.an('object')
                     expect(res.body.data).to.be.an('array');
-                    expect(res.body.data[0].firstname).to.equal('David');
+                   
                     
                 });
         });
@@ -40,16 +40,15 @@ describe('Intervention Tests', () => {
             .then((res) => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.be.an('object');
-                console.log(res.body.token);
-                jwtToken = res.body.token;
-                console.log(jwtToken);
+                jwtToken = res.body.data[0].token;
+                console.log(res.body);
             });
         });
 
         it('create intervention - with good parameters', () => {
             return chai.request(app)
                 .post('/api/v1/interventions')
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
                     "latitude": -40.434534653473453453234234234,
@@ -67,7 +66,7 @@ describe('Intervention Tests', () => {
         it('create intervention - invalid latitude', () => {
             return chai.request(app)
                 .post('/api/v1/interventions')
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
                     "latitude": '-40.434534653473453453234234234',
                     "longitude": -179.12345678765432190876,
@@ -82,7 +81,7 @@ describe('Intervention Tests', () => {
         it('creat intervention - invalid longitude', () => {
             return chai.request(app)
                 .post('/api/v1/interventions')
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
 
@@ -99,7 +98,7 @@ describe('Intervention Tests', () => {
         it('create intervention - invalid comment', () => {
             return chai.request(app)
                 .post('/api/v1/interventions')
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
 
@@ -117,7 +116,7 @@ describe('Intervention Tests', () => {
         it('Get All Intervention Records', () => {
             return chai.request(app)
                 .get('/api/v1/interventions')
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .then((res) => {
                     expect(res).to.have.status(200);
                 });
@@ -126,7 +125,7 @@ describe('Intervention Tests', () => {
         it('Get A Specific Intervention Record', () => {
             return chai.request(app)
                 .get(`/api/v1/interventions/${interventionId}`)
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .then((res) => {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.an('object');
@@ -139,7 +138,7 @@ describe('Intervention Tests', () => {
         it('Edit An Intervention location', () => {
             return chai.request(app)
                 .patch(`/api/v1/interventions/${interventionId}/location`)
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
                     "latitude": 23.73453453234234234,
@@ -153,7 +152,7 @@ describe('Intervention Tests', () => {
         it('invalid latitude', () => {
             return chai.request(app)
                 .patch(`/api/v1/interventions/${interventionId}/location`)
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
                     "latitude": '23.73453453234234234',
@@ -167,7 +166,7 @@ describe('Intervention Tests', () => {
         it('invalid longitude', () => {
             return chai.request(app)
                 .patch(`/api/v1/interventions/${interventionId}/location`)
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
                     "latitude": 23.73453453234234234,
@@ -182,7 +181,7 @@ describe('Intervention Tests', () => {
         it('Edit An Intervention Comment', () => {
             return chai.request(app)
                 .patch(`/api/v1/interventions/${interventionId}/comment`)
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
                     "comment": "Wetin we gain"
@@ -196,7 +195,7 @@ describe('Intervention Tests', () => {
         it('invalid comment', () => {
             return chai.request(app)
                 .patch(`/api/v1/interventions/${interventionId}/comment`)
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .send({
 
                     "comment": 12431431343
@@ -209,7 +208,7 @@ describe('Intervention Tests', () => {
         it('Delete An Intervention', () => {
             return chai.request(app)
                 .del(`/api/v1/interventions/${interventionId}`)
-                .set('authorization', `Bearer ${jwtToken}`)
+                .set('authorization', `${jwtToken}`)
                 .then((res) => {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.an('object');

@@ -5,15 +5,13 @@ export const redFlags = [];
 class RedFlagClass {
   
   // eslint-disable-next-line class-methods-use-this
-  create(data) {
+  create(data, callback) {
     
     let arr = []
     while(arr.length < 8){
       var r = Math.floor(Math.random()*10);// + 1;
       arr.push(r);
     }
-
-    //type: data.type,
     const newRedFlag = {
       id: arr.join(''),
       createdOn: new Date().toDateString(),
@@ -25,10 +23,9 @@ class RedFlagClass {
       comment: data.comment
     }
 
-    let checkid = newUserObject.checkID(data.userId);
-    if(checkid){
+    //let checkid = newUserObject.checkID(data.userId);
+    //if(checkid){
         redFlags.push(newRedFlag);
-        // console.log(users);
         let {id} = newRedFlag;
         let response = {
             id,
@@ -38,15 +35,11 @@ class RedFlagClass {
         db.query('INSERT INTO redflags (id, createdon, createdby, type, location, status, comment) values($1, $2, $3, $4, $5, $6, $7)',
         [newRedFlag.id, newRedFlag.createdOn, newRedFlag.createdBy, newRedFlag.type, newRedFlag.location, newRedFlag.status, newRedFlag.comment ], (err)=>{
           if (err) {
-            console.log(err);
+            console.log('Err ',err);
+            response = false;
           }
+          callback(response);
         });
-        //return newRedFlag;
-        return response;
-    }
-    else{
-      return false;
-    }
   }
 
   getSpecificRedFlag(id, callback) {
@@ -60,8 +53,15 @@ class RedFlagClass {
     //return redFlagFound;
   }
   
- getAllRedFlagsRecord() {
-     return redFlags;
+ getAllRedFlagsRecord(callback) {
+     //return redFlags;
+     db.query('SELECT * FROM redflags',
+     [], (err, res)=>{
+       if (err) {
+         console.log(err);
+       }
+       callback(err, res)
+     });
  }
 
  editRedFlagLocation(id, userid, latitude, longitude, callback){

@@ -5,7 +5,7 @@ export const interventions = [];
 class InterventionClass {
 
   // eslint-disable-next-line class-methods-use-this
-  create(data) {
+  create(data, callback) {
 
     let arr = []
     while(arr.length < 8){
@@ -24,8 +24,8 @@ class InterventionClass {
       comment: data.comment
     }
 
-    let checkid = newUserObject.checkID(data.userId);
-    if(checkid){
+    //let checkid = newUserObject.checkID(data.userId);
+    //if(checkid){
       interventions.push(newIntervention);
       let {id} = newIntervention;
       let response = {
@@ -37,16 +37,10 @@ class InterventionClass {
               [newIntervention.id, newIntervention.createdOn, newIntervention.createdBy, newIntervention.type, newIntervention.location, newIntervention.status, newIntervention.comment ], (err)=>{
                 if (err) {
                   console.log(err);
+                  response = false;
                 }
+                callback(response);
               });
-      
-      //return newRedFlag;
-      return response;
-    }
-    else{
-      return false;
-    }
-
   }
 
   getSpecificIntervention(id, callback) {
@@ -71,8 +65,15 @@ class InterventionClass {
   }
 
   
- getAllinterventionRecords() {
-     return interventions;
+ getAllinterventionRecords(callback) {
+  db.query('SELECT * FROM interventions',
+  [], (err, res)=>{
+    if (err) {
+      console.log(err);
+    }
+    callback(err, res)
+  });
+
  }
 
 

@@ -29,24 +29,42 @@ const RedFlag = {
     req.body.latitude = Math.round(req.body.latitude * 1e16) / 1e16;
     req.body.longitude = Math.round(req.body.longitude * 1e16) / 1e16;
 
-    const redflag = newRedFlagObject.create(req.body);
-
-    if (redflag === false) {
-      return res.status(400).send({
-        status: 400,
-        error: 'No user found with the supplied user-id, please check the id and try again.'
-      });
-    }
-
-    const response = {
-      status: 201,
-      data: [redflag]
-    };
-    return res.status(201).send(response);
+    newRedFlagObject.create(req.body, (result) => {
+      if (result === false) {
+        return res.status(400).send({
+          status: 400,
+          error: 'No user found with the supplied user-id, please check the id and try again.'
+        });
+      }
+  
+      const response = {
+        status: 201,
+        data: [result]
+      };
+      return res.status(201).send(response);
+    });
   },
 
   getAllRedFlags(req, res) {
-    const redFlags = newRedFlagObject.getAllRedFlagsRecord();
+    newRedFlagObject.getAllRedFlagsRecord((err, result) => {
+      if (result === undefined) {
+        return res.status(400).send({ message: 'Error processing request. Check order id' });
+      } else {
+            if (result.rowCount === 0) {
+              const response = {
+                status: 200,
+                error: 'No red-flags received yet'
+              };
+              return res.status(400).send(response);
+          }
+          const response = {
+            status: 200,
+            data: [result.rows]
+          };
+          return res.status(200).send(response);
+      }               
+   });
+/*
     if (redFlags.length === 0) {
       return res.status(200).send({
         status: 200,
@@ -60,6 +78,7 @@ const RedFlag = {
       data: redFlags
     };
     return res.status(200).send(response);
+    */
   },
 
   fetchSpecificRedFlag(req, res) {
