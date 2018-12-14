@@ -19,7 +19,7 @@ describe('iReporter Test Suites', () => {
                 "firstname": "David",
                 "lastname": "McCain",
                 "othernames": "",
-                "email": "abc@xyz.com",
+                "email": "pabc@xyz.com",
                 "phoneNumber": "93463563563",
                 "username": "tokyo",
                 "password": "atoms"
@@ -36,7 +36,7 @@ describe('iReporter Test Suites', () => {
             return chai.request(app)
             .post('/api/v1/auth/login')
             .send({
-                username: 'tokyo',
+                email: 'pabc@gmail.com',
                 password: 'atoms'
               })
             .then((res) => {
@@ -53,7 +53,7 @@ describe('iReporter Test Suites', () => {
             .post('/api/v1/red-flags')
             .set('authorization', `${jwtToken}`)
             .send({
-                
+                "title": 'the title of the red flag record to be inserted, its kinda long',
                 "latitude": -40.434534653473453453234234234,
                 "longitude": -179.12345678765432190876,
                 "comment": "Some stories...Some stories...Some stories...Some stories...Some stories..."
@@ -71,6 +71,7 @@ describe('iReporter Test Suites', () => {
                 .post('/api/v1/red-flags')
                 .set('authorization', `${jwtToken}`)
                 .send({
+                    "title": 'the title of the red flag record to be inserted, its kinda long',
                     "latitude": '-40.434534653473453453234234234',
                     "longitude": -179.12345678765432190876,
                     "comment": "Some stories...Some stories...Some stories...Some stories...Some stories..."
@@ -87,7 +88,7 @@ describe('iReporter Test Suites', () => {
                 .set('authorization', `${jwtToken}`)
                 .send({
 
-
+                    "title": 'the title of the red flag record to be inserted, its kinda long',
                     "latitude": -40.434534653473453453234234234,
                     "longitude": '-179.12345678765432190876',
                     "comment": "Some stories...Some stories...Some stories...Some stories...Some stories..."
@@ -103,7 +104,7 @@ describe('iReporter Test Suites', () => {
                 .post('/api/v1/red-flags')
                 .set('authorization', `${jwtToken}`)
                 .send({
-
+                    "title": 'the title of the red flag record to be inserted, its kinda long',
 
                     "latitude": -40.434534653473453453234234234,
                     "longitude": -179.12345678765432190876,

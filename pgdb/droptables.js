@@ -9,7 +9,7 @@ db.query(queryText, (error)=>{
 	if (error) {
 		console.log(error);
 	}
-});
+});  
 
 const queryRedFlags =
     `DROP TABLE IF EXISTS redflags CASCADE`;

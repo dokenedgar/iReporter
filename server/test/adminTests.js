@@ -6,7 +6,7 @@ import app from '../../index.js';
 let jwtToken;
 let redFlagId;
 chai.use(chaiHttp);
-
+/*
 describe('Admin Tests', () => {
         it('Edit Status - Intervention', () => {
             return chai.request(app)
@@ -35,3 +35,4 @@ describe('Admin Tests', () => {
         });
 
     });
+*/

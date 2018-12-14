@@ -26,7 +26,8 @@ const jwtObject = {
              // console.log(authData.user);
              //  console.log(authData.user.isAdmin);
               req.body.userId = authData.user.userid;
-             // req.body.userType = authData.user.isAdmin;
+              req.body.userType = authData.user.isadmin;
+            //  console.log(req.body.userType);
 
                 next();
               }

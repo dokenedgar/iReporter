@@ -15,6 +15,7 @@ class InterventionClass {
 
     const newIntervention = {
       id: arr.join(''),
+      title: data.title,
       createdOn: new Date().toDateString(),
       createdBy: data.userId,
       type: 'Intervention',
@@ -33,8 +34,8 @@ class InterventionClass {
           message: "Created Intervention record"
       };
               //Insert into db here
-              db.query('INSERT INTO interventions (id, createdon, createdby, type, location, status, comment) values($1, $2, $3, $4, $5, $6, $7)',
-              [newIntervention.id, newIntervention.createdOn, newIntervention.createdBy, newIntervention.type, newIntervention.location, newIntervention.status, newIntervention.comment ], (err)=>{
+              db.query('INSERT INTO interventions (id, title, createdon, createdby, type, location, status, comment) values($1, $2, $3, $4, $5, $6, $7, $8)',
+              [newIntervention.id, newIntervention.title, newIntervention.createdOn, newIntervention.createdBy, newIntervention.type, newIntervention.location, newIntervention.status, newIntervention.comment ], (err)=>{
                 if (err) {
                   console.log(err);
                   response = false;
@@ -51,17 +52,7 @@ class InterventionClass {
       }
       callback(err, res)
     });
-    //return redFlagFound;
-    /*
-    let interventionFound = false;
-    interventions.forEach((element) =>{
-      if((element.id === id)){
-        interventionFound = element;
-        return interventionFound;
-      }
-    });
-    return interventionFound;
-    */
+
   }
 
   
@@ -78,60 +69,26 @@ class InterventionClass {
 
 
  editInterventionLocation(id, userid, latitude, longitude, callback){
-  db.query('UPDATE interventions SET location=($1) WHERE id=($2) AND createdby=($3)',
-  [`${latitude}, ${longitude}`, id, userid],
+  db.query('UPDATE interventions SET location=($1) WHERE id=($2) AND createdby=($3) AND status=($4)',
+  [`${latitude}, ${longitude}`, id, userid, 'Draft'],
   (err, res)=>{
     if (err) {
       console.log(err);
     }
     callback(err, res)
   });
-/*
-    let recordFound = false;
-    interventions.forEach((element) =>{
-      if((element.id === id)&& (element.createdBy === userid)){
-        element.location =  `${latitude}, ${longitude}`;
-        recordFound = {
-            id,
-            message: "Updated Intervention record’s location"
-        };
-        return recordFound;
-      }
-      else if(element.id === id){
-        recordFound = true;
-        return recordFound;
-      }
-    });
-    return recordFound; */
  }
 
 editInterventionComment(id, userid, comment, callback){
-  db.query('UPDATE interventions SET comment=($1) WHERE id=($2) AND createdby=($3)',
-  [comment, id, userid],
+  db.query('UPDATE interventions SET comment=($1) WHERE id=($2) AND createdby=($3) AND status=($4)',
+  [comment, id, userid, 'Draft'],
   (err, res)=>{
     if (err) {
       console.log(err);
     }
     callback(err, res)
   });
-/*
-    let recordFound = false;
-    interventions.forEach((element) =>{
-      if((element.id === id)&& (element.createdBy === userid)){
-        element.comment =  comment;
-        recordFound = {
-            id,
-            message: "Updated intervention record’s comment"
-        };
-        return recordFound;
-      }
-      else if(element.id === id){
-        recordFound = true;
-        return recordFound;
-      }
-    });
-    return recordFound;
-    */
+
  }
 
 
@@ -143,25 +100,18 @@ editInterventionComment(id, userid, comment, callback){
     }
     callback(err, res)
   });
-  /*
-    let recordFound = false;
-    interventions.forEach((element, index) =>{
-      if((element.id === id)&& (element.createdBy === userid)){
-        interventions.splice(index, 1);
-        recordFound = {
-            id,
-            message: "Intervention record has been deleted"
-        };
-        return recordFound;
-      }
-      else if(element.id === id){
-        recordFound = true;
-        return recordFound;
-      }
-    });
-    return recordFound;
-    */
  }
+
+ setStatus(id, status, callback){
+  db.query('UPDATE interventions SET status=($1) WHERE id=($2)',
+  [status, id], (err, res)=>{
+    if (err) {
+      console.log(err);
+    }
+    callback(err, res)
+  
+  });
+}
 
 }
 

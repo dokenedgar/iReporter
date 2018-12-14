@@ -18,23 +18,21 @@ class adminValidation {
         .isNumeric()
         .withMessage('You provided a non-integer in the red-flag id field');
 
-        req.check('type').isLength({
-                min: 8
-            })
-            .withMessage('Please enter type, between red-flag or intervention')
-            .isLength({
-                max: 14
-            })
-            .withMessage('Please enter type, between red-flag or intervention')
+        if ((req.body.status !== 'under investigation') && (req.body.status !== 'rejected')&& (req.body.status !== 'resolved') ) {
+            return res.status(400).send({ status: 400, error: 'Please status should be: under investigation, rejected or resolved.' });
+          }
+ 
             
-            
-
-        if (req.validationErrors()) {
-            return res.status(400).json({
-                status: 400,
-                error: req.validationErrors()
-            });
-        }
+            let signInErrors = [];
+            if (req.validationErrors()) {
+                req.validationErrors().forEach(element => {
+                    signInErrors.push({ message: element.msg})
+                });
+                return res.status(400).json({
+                    status: 400,
+                    error: signInErrors
+                });
+            }
         next();
     }
 

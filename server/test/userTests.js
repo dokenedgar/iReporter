@@ -6,6 +6,7 @@ import app from '../../index.js';
 chai.use(chaiHttp);
 
 describe('iReporter User Test Suites', () => {
+    this.timeout(10000);
     
         it('sign up new user', () => {
             return chai.request(app)
@@ -14,7 +15,7 @@ describe('iReporter User Test Suites', () => {
                 "firstname": "David",
                 "lastname": "McCain",
                 "othernames": "",
-                "email": "abc@xyz.com",
+                "email": "mabc@xyz.com",
                 "phoneNumber": "93463563563",
                 "username": "youare",
                 "password": "perfect"
@@ -30,7 +31,7 @@ describe('iReporter User Test Suites', () => {
             return chai.request(app)
             .post('/api/v1/auth/login')
             .send({
-                username: 'youare',
+                "email": "mabc@xyz.com",
                 password: 'perfect'
               })
             .then((res) => {
@@ -43,7 +44,7 @@ describe('iReporter User Test Suites', () => {
             return chai.request(app)
             .post('/api/v1/auth/login')
             .send({
-                username: 'youarenot',
+                "email": "mmabc@xyz.com",
                 password: 'perfect'
               })
             .then((res) => {

@@ -205,7 +205,20 @@ const Intervention = {
     });
 
   },
+  editStatus(req, res) {
+    newInterventionObject.setStatus(req.params.id, req.body.status, (err, result)=>{
+      if (result===undefined) {
+       return res.status(400).send({ message: 'Error processing request. Incorrect / invalid id' });
+     }
+   if (result.rowCount === 0) {
+    const response = { status: 400, error: 'No record found with the supplied id' };
+    return res.status(400).send(response);
+   }
 
+   const response = { status: 200, data: [ {id: req.params.id, message: "updated intervention record status"}] };
+      return res.status(200).send(response);
+   });
+  }
 
 }
 export default Intervention;

@@ -16,7 +16,7 @@ describe('Intervention Tests', () => {
                     "firstname": "David",
                     "lastname": "McCain",
                     "othernames": "",
-                    "email": "abc@xyz.com",
+                    "email": "zabc@xyz.com",
                     "phoneNumber": "93463563563",
                     "username": "mission",
                     "password": "impossible"
@@ -34,7 +34,7 @@ describe('Intervention Tests', () => {
             return chai.request(app)
             .post('/api/v1/auth/login')
             .send({
-                username: 'mission',
+                email: 'zabc@xyz.com',
                 password: 'impossible'
               })
             .then((res) => {
@@ -50,7 +50,7 @@ describe('Intervention Tests', () => {
                 .post('/api/v1/interventions')
                 .set('authorization', `${jwtToken}`)
                 .send({
-
+                    "title": 'the title of the intervention record to be inserted, its kinda long',
                     "latitude": -40.434534653473453453234234234,
                     "longitude": -179.12345678765432190876,
                     "comment": "Some stories...Some stories...Some stories...Some stories...Some stories..."
@@ -68,6 +68,7 @@ describe('Intervention Tests', () => {
                 .post('/api/v1/interventions')
                 .set('authorization', `${jwtToken}`)
                 .send({
+                    "title": 'the title of the intervention record to be inserted, its kinda long',
                     "latitude": '-40.434534653473453453234234234',
                     "longitude": -179.12345678765432190876,
                     "comment": "Some stories...Some stories...Some stories...Some stories...Some stories..."
@@ -83,7 +84,7 @@ describe('Intervention Tests', () => {
                 .post('/api/v1/interventions')
                 .set('authorization', `${jwtToken}`)
                 .send({
-
+                    "title": 'the title of the intervention record to be inserted, its kinda long',
 
                     "latitude": -40.434534653473453453234234234,
                     "longitude": '-179.12345678765432190876',
@@ -100,7 +101,7 @@ describe('Intervention Tests', () => {
                 .post('/api/v1/interventions')
                 .set('authorization', `${jwtToken}`)
                 .send({
-
+                    "title": 'the title of the intervention record to be inserted, its kinda long',
 
                     "latitude": -40.434534653473453453234234234,
                     "longitude": -179.12345678765432190876,

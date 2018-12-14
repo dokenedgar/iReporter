@@ -13,5 +13,6 @@ interventionRoutes.get('/:id', interventionValidation.fetchSpecificRecord, Inter
 interventionRoutes.patch('/:id/location', Intervention.editLocationIntervention);
 interventionRoutes.patch('/:id/comment', Intervention.editCommentIntervention);
 interventionRoutes.delete('/:id', interventionValidation.deleteRecord, Intervention.deleteIntervention);
+interventionRoutes.patch('/:id/status', interventionValidation.editStatus, Intervention.editStatus);
 
 module.exports = interventionRoutes;

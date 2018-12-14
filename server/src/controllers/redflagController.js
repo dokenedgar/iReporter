@@ -135,7 +135,7 @@ const RedFlag = {
     if (result.rowCount === 0) {
       const response = {
         status: 400,
-        error: 'Check whether red-flag exists, and if it were created by this user'
+        error: 'Could not update record. Check whether red-flag exists, and if it were created by this user. Or status has been changed'
       };
       return res.status(400).send(response);
     }
@@ -169,7 +169,7 @@ const RedFlag = {
     if (result.rowCount === 0) {
       const response = {
         status: 400,
-        error: 'Check whether red-flag exists, and if it were created by this user'
+        error: 'Check whether red-flag exists, if it were created by this user or if status has been changed'
       };
       return res.status(400).send(response);
     }
@@ -213,5 +213,19 @@ const RedFlag = {
     });
   },
 
+  editStatus(req, res) {
+    newRedFlagObject.setStatus(req.params.id, req.body.status, (err, result)=>{
+      if (result===undefined) {
+       return res.status(400).send({ message: 'Error processing request. Incorrect / invalid id' });
+     }
+   if (result.rowCount === 0) {
+    const response = { status: 400, error: 'No record found with the supplied id' };
+    return res.status(400).send(response);
+   }
+
+   const response = { status: 200, data: [ {id: req.params.id, message: "updated red flag status"}] };
+      return res.status(200).send(response);
+   });
+  }
 }
 export default RedFlag;

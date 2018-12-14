@@ -8,25 +8,27 @@ const queryText =
         firstname VARCHAR(20) NOT NULL,
         othernames VARCHAR(20) ,
         lastname VARCHAR(20) NOT NULL,
+        email VARCHAR(30) UNIQUE NOT NULL,
         phoneNumber VARCHAR(20) NOT NULL,
         username VARCHAR(20) NOT NULL,
         password VARCHAR(20) NOT NULL,
         registered VARCHAR(20) NOT NULL,
-        isAdmin VARCHAR(20) NOT NULL
-        
+        isAdmin VARCHAR(20) NOT NULL 
       )`;
-
+ 
 db.query(queryText, (error)=>{
 	if (error) {
 		console.log(error);
 	}
 });
 
+
 const tableRedFlags =
-    `CREATE TABLE IF NOT EXISTS
+    `CREATE TABLE 
       redflags (
         count SERIAL PRIMARY KEY,
         id VARCHAR(20) NOT NULL,
+        title VARCHAR(30) NOT NULL,
         createdon VARCHAR(30) NOT NULL,
         createdby VARCHAR(20) references users(userid) NOT NULL,
         type VARCHAR(20) NOT NULL,
@@ -39,7 +41,7 @@ const tableRedFlags =
 db.query(tableRedFlags, (error)=>{
   if (error) {
     console.log(error);
-  }
+  } 
 });
 
 const tableInterventions =
@@ -47,6 +49,7 @@ const tableInterventions =
     interventions (
         count SERIAL PRIMARY KEY,
         id VARCHAR(20) NOT NULL,
+        title VARCHAR(30) NOT NULL,
         createdon VARCHAR(30) NOT NULL,
         createdby VARCHAR(20) references users(userid) NOT NULL,
         type VARCHAR(20) NOT NULL,

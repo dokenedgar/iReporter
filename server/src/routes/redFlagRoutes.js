@@ -14,4 +14,7 @@ redflagRoutes.patch('/:id/location', RedFlag.editLocationRedFlag);
 redflagRoutes.patch('/:id/comment', RedFlag.editCommentRedFlag);
 redflagRoutes.delete('/:id', redFlagValidation.deleteRecord, RedFlag.deleteRedFlag);
 
+//PATCH /red-flags/<red-flag-id>/status
+redflagRoutes.patch('/:id/status', redFlagValidation.editStatus, RedFlag.editStatus);
+
 module.exports = redflagRoutes;
